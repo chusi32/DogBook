@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <!-- attach CSS styles -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  {!!Html::style('css/bootstrap/bootstrap.min.css')!!}
   <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -43,9 +43,8 @@
   </nav>
 
   <!-- attach JavaScripts -->
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="//maps.google.com/maps/api/js?sensor=true"></script>
-  <script src="js/main.js"></script>
+  {!!Html::script('js/jquery/jquery-3.1.0.min.js')!!}
+  {!!Html::script('js/bootstrap/bootstrap.min.js')!!}
+  {!!Html::script('js/scripts/main.js')!!}
 </body>
 </html>

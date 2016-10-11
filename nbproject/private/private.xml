@@ -4,6 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/chusi/Proyectos/DogBook/resources/views/welcome.blade.php</file>
+            <file>file:/home/chusi/Proyectos/DogBook/resources/views/index/index.blade.php</file>
+            <file>file:/home/chusi/Proyectos/DogBook/routes/web.php</file>
+            <file>file:/home/chusi/Proyectos/DogBook/config/app.php</file>
+            <file>file:/home/chusi/Proyectos/DogBook/composer.json</file>
         </group>
     </open-files>
 </project-private>
