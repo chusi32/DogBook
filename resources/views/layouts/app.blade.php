@@ -81,7 +81,33 @@
         @yield('content')
     </div>
 
+    <footer>
+        <div class="container fixed">
+            <div class="row">
+                <div class="span4">
+                    <a href="https://laravel.com/docs">Sobre DogBook</a>
+                    <a href="https://laracasts.com">Patrocina tu empresa</a>
+                    <a href="https://laravel-news.com">Terminos</a>
+                    <a href="https://forge.laravel.com">Noticias</a>
+                    <a href="https://github.com/laravel/laravel">Creador del sitio</a>
+                    <hr/>
+                    <p class="muted pull-right">© 2016 DogBook. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+
+
+
+
+
+
+
+
 </body>
 </html>
