@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet">
+        {!!Html::style('css/styles/info/wel.css')!!}
         @yield('css')
         {{-- {!!Html::style('css/styles/welcome.css')!!} --}}
         <style>
@@ -21,8 +22,10 @@
     <body>
         @include('info.menu')
         @yield('content')
+        @include('info.footer')
         <!-- Scripts -->
         <script src="/js/app.js"></script>
+        {!!Html::script('js/scripts/info/info.js')!!}
         @yield('js')
     </body>
 </html>
