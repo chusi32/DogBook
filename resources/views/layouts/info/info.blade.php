@@ -22,7 +22,7 @@
     <body>
         @include('info.menu')
         @yield('content')
-        @include('info.footer')
+        @include('layouts.app_footer')
         <!-- Scripts -->
         <script src="/js/app.js"></script>
         {!!Html::script('js/scripts/info/info.js')!!}

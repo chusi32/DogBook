@@ -1,9 +1,9 @@
-<!-- Información del usuario -->
-{{-- <h3>Información de usuario</h3> --}}
 
-<div class="panel panel-default">
-    <div class="panel-heading">Información de usuario</div>
-
+<div class="panel panel-primary">
+    <div class="panel-heading clickable">
+        <h3 class="panel-title">Información de usuario</h3>
+            <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
+    </div>
     <div class="panel-body">
         <form>
         <div class="form-group">
@@ -18,15 +18,5 @@
         {{ Form::button('Cuenta', array('class' => 'btn')) }}
         </form>
     </div>
-
-
-    {{-- <div>
-        @foreach($id as $item )
-            {
-                <label>{{ $item['nombre'] }}</label>
-            }
-        @endforeach
-    </div> --}}
-
 
 </div>
