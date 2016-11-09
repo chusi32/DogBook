@@ -65,24 +65,5 @@
         </div>
     </div>
 
-
-    <div class="jumbotron">
-    <div class="container-fluid">
-
-                <h2>Acuerdos legales</h2>
-                <hr/>
-                <h3>Privacidad de los datos personales:</h3>
-                <p>Sus datos personales le corresponden usted y esta aplicacion
-                    es responsable de no revelar ninguna clase de información
-                     que le pertenezca ( email, números de ip... ), salvo su
-                     expresa autorización o fuerza de naturaleza mayor de tipo
-                     legal que lo involucren en cualquier tipo de delito.
-                 </p>
-
-    </div>
-</div>
-
-
-
 </div>
 @endsection
