@@ -8,6 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Pet;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -34,6 +35,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function pets()
     {
-        return $this->hasMany('App\Pet', 'IDUsuario');
+        return $this->hasMany('Pet', 'IDUsuario');
     }
 }

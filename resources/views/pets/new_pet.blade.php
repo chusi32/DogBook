@@ -51,7 +51,19 @@
                   {{ Form::label('age', 'Edad')}}
                   {{ Form::selectRange('age', 1, 20, 1, ['class' => 'form-control']) }}
                 </div>
-
+                <div class="form-group">
+                  {{ Form::label('province', 'Provincia')}}
+                  {{ Form::select('province',$provinces, null,['id' => 'province','class' => 'form-control']) }}
+                </div>
+                <div class="form-group">
+                  {{ Form::label('location', 'Localidad')}}
+                  {{ Form::select('location', ['placeholder' => 'Seleccione'], null, ['id' => 'location', 'class' => 'form-control']) }}
+                </div>
+                <div class="form-group">
+                  {{ Form::label('breed', 'Raza')}}
+                  {{ Form::select('breed',$breeds, null,['id' => 'breed','class' => 'form-control']) }}
+                  {{ Form::checkbox('agree', 1, null, ['class' => 'field']) }}
+                </div>
                 {{ Form::submit('Enviar')}}
             {{ Form::close()}}
         </div>

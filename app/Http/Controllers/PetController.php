@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Province;
+use App\Location;
+use App\Breed;
 
 class PetController extends Controller
 {
@@ -15,11 +18,20 @@ class PetController extends Controller
 
     public function getForm()
     {
-        $provinces = Provinces::lists('nombreProvincia', 'id');
-        return view('pets.new_pet', compact($provinces))
+        $provinces = Province::pluck('nombreProvincia', 'id');
+        $breeds = Breed::pluck('nombreRaza', 'id');
+        return view('pets.new_pet', compact('provinces', 'breeds'));
     }
 
     public function newPet(Request $request){
         return redirect('/home')->with('message', 'store');
+    }
+
+    public function getLocations(Request $request, $id){
+        if($request->ajax())
+        {
+            $locations = Location::locations($id);
+            return response()->json($locations);
+        }
     }
 }

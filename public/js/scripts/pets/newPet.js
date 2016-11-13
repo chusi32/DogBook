@@ -1,3 +1,27 @@
+$('#province').change(function(event){
+    $.get('locations/' + event.target.value, function(response, province){
+        $('#location').empty();
+        for(i=0; i<response.length; i++)
+        {
+            $('#location').append('<option value="' + response[i].id + '">' + response[i].nombreLocalidad + '</option>');
+        }
+    });
+});
+
+// $('#province').change(event => {
+//     $.get('locations/${event.target.value}', function(res, sta){
+//         $('#location').empty();
+//         res.forEach(element => {
+//             $('#location').append('<option value=${res.id}> ${res.nombreProvincia} </option>');
+//         });
+//     });
+// });
+
+
+/*
+    PARA EL INPUT FILE
+ */
+
 // $(document).on('click', '#close-preview', function(){
 //     $('.image-preview').popover('hide');
 //     // Hover befor close the preview

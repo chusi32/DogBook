@@ -48,3 +48,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/newPet', 'PetController@getForm');
 
 Route::post('/newPet', 'PetController@newPet');
+
+Route::get('locations/{id}', 'PetController@getLocations');
