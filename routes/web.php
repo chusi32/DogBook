@@ -41,3 +41,10 @@ Auth::routes();
  * Ruta para Home
  */
 Route::get('/home', 'HomeController@index');
+
+/**
+ * Rutas para crear nueva mascota
+ */
+Route::get('/newPet', 'PetController@getForm');
+
+Route::post('/newPet', 'PetController@newPet');

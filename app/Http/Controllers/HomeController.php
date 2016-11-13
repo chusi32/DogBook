@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Auth;
 
 class HomeController extends Controller
@@ -32,6 +31,6 @@ class HomeController extends Controller
         //$user = Auth::user();
         $mas = Auth::user()->pets;
         //$mascotas = $mas->nombre;
-        return view('home.home',['user' => $user]);
+        return view('home.home',['user' => $user, 'pets' => $mas]);
     }
 }
