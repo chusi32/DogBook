@@ -1,8 +1,3 @@
-@if(session('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        Mascota creada correctamente.
-    </div>
-@endif
 <div class="panel panel-primary">
     <div class="panel-heading clickable">
         <h3 class="panel-title">Mascotas</h3>

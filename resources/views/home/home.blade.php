@@ -11,8 +11,13 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
             <h2 class="text-center">Panel de Usuario</h2>
+            @if(session('message'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{session('message')}}
+                </div>
+            @endif
         </div>
     </div>
     <div class="row">

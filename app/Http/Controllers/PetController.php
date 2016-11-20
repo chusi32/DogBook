@@ -7,6 +7,10 @@ use Auth;
 use App\Province;
 use App\Location;
 use App\Breed;
+use File;
+use Input;
+//use illuminate\Support\Facades\Validator;
+
 
 class PetController extends Controller
 {
@@ -24,7 +28,13 @@ class PetController extends Controller
     }
 
     public function newPet(Request $request){
-        return redirect('/home')->with('message', 'store');
+        //File::makeDirectory('../../users');
+        if(File::exists('../public/users'))
+        {
+            $request->file('image')->move('../public/users', 'guay.png');
+            //Input::file('image')->move($destinationPath, $fileName);
+        }
+        return redirect('/home')->with('message', 'Mascota creada correctamente');
     }
 
     public function getLocations(Request $request, $id){

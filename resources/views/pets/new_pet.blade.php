@@ -22,13 +22,13 @@
             {{-- TODO: Para la publicidad --}}
         </div>
         <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
-            {{ Form::open(array('method' => 'POST'), array('role' => 'form')) }}
+            {{ Form::open(array('method' => 'POST', 'files' => true), array('role' => 'form')) }}
                 {{ csrf_field() }}
                 <div class="form-group">
                     {{ Form::label('Imagen de perfil')}}
                     <!-- image-preview-filename input [CUT FROM HERE]-->
                     <div class="input-group image-preview">
-                        <input type="text" class="form-control image-preview-filename" id="image" name="image" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                        <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
                         <span class="input-group-btn">
                             <!-- image-preview-clear button -->
                             <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
@@ -38,10 +38,11 @@
                             <div class="btn btn-default image-preview-input">
                                 <span class="glyphicon glyphicon-folder-open"></span>
                                 <span class="image-preview-input-title">Browse</span>
-                                <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                <input type="file" accept="image/png, image/jpeg, image/gif" id="image" name="image"/> <!-- rename it -->
                             </div>
                         </span>
                     </div><!-- /input-group image-preview [TO HERE]-->
+                    {{-- {{ Form::file('image') }} --}}
                 </div>
                 <div class="form-group">
                   {{ Form::label('name', 'Nombre')}}
@@ -62,7 +63,24 @@
                 <div class="form-group">
                   {{ Form::label('breed', 'Raza')}}
                   {{ Form::select('breed',$breeds, null,['id' => 'breed','class' => 'form-control']) }}
-                  {{ Form::checkbox('agree', 1, null, ['class' => 'field']) }}
+                </div>
+                <div class="form-group">
+                  {{ Form::label('Tengo pedigree')}}
+                  {{ Form::checkbox('chkPedigree', null, null, ['id' => 'chkPedigree', 'class' => 'field']) }}
+                </div>
+                <div id="pedigree">
+                    <div class="form-group">
+                        {{ Form::label('nameFather', 'Nombre del padre')}}
+                        {{ Form::text('nameFather', null, array('class' => 'form-control')) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('nameMother', 'Nombre de la madre')}}
+                        {{ Form::text('nameMother', null, array('id' => 'nameMother', 'class' => 'form-control')) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('description', 'Descripción del pedegree')}}
+                        {{ Form::textarea('description', null, ['id' => 'description','class' => 'form-control']) }}
+                    </div>
                 </div>
                 {{ Form::submit('Enviar')}}
             {{ Form::close()}}

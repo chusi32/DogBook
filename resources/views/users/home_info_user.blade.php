@@ -11,10 +11,20 @@
             {{ Form::label(null, $user['name'], array())}}
         </div>
         <div class="form-group">
+            {{ Form::label('Apellidos:')}}
+            {{ Form::label(null, $user['surname'], array())}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('Usuario:')}}
+            {{ Form::label(null, $user['user'], array())}}
+        </div>
+        <div class="form-group">
             {{ Form::label('Email:')}}
             {{ Form::label(null, $user['email'], array())}}
         </div>
-        {{ Form::button('Modificar', array('class' => 'btn')) }}
+        <a href="{{ url('/modifyUser')}}">
+            {{ Form::button('Modificar', array('class' => 'btn btn-primary pull-right')) }}
+        </a>
         {{ Form::button('Cuenta', array('class' => 'btn')) }}
         </form>
     </div>

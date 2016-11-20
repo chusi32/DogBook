@@ -1,3 +1,29 @@
+$(document).ready(function(){
+    //inicializar select localidades
+    $.get('locations/1', function(response, province){
+        $('#location').empty();
+        for(i=0; i<response.length; i++)
+        {
+            $('#location').append('<option value="' + response[i].id + '">' + response[i].nombreLocalidad + '</option>');
+        }
+    });
+
+    //Ocultamos la region del div de la información del pedigree
+    $('#pedigree').hide();
+
+    //Mostrar u ocultar el div de la info del pedigree dependiendo del estado del checkbox
+    $("#chkPedigree").click(function() {
+    if($(this).is(':checked')) {
+        $('#pedigree').toggle();
+    } else {
+        $('#pedigree').toggle();
+        $('#nameFather').val('');
+        $('#nameMother').val('');
+        $('#description').val('')
+    }
+});
+});
+
 $('#province').change(function(event){
     $.get('locations/' + event.target.value, function(response, province){
         $('#location').empty();
@@ -7,15 +33,6 @@ $('#province').change(function(event){
         }
     });
 });
-
-// $('#province').change(event => {
-//     $.get('locations/${event.target.value}', function(res, sta){
-//         $('#location').empty();
-//         res.forEach(element => {
-//             $('#location').append('<option value=${res.id}> ${res.nombreProvincia} </option>');
-//         });
-//     });
-// });
 
 
 /*

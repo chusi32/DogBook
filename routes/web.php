@@ -17,6 +17,12 @@
 Route::get('/', function () {
     return view('info.welcome');
 });
+
+/**
+ * Acciones comunes
+ */
+Route::get('/goBack', 'BasicActionController@goBack');
+
 /**
  * Rutas para Info
  */
@@ -46,7 +52,11 @@ Route::get('/home', 'HomeController@index');
  * Rutas para crear nueva mascota
  */
 Route::get('/newPet', 'PetController@getForm');
-
 Route::post('/newPet', 'PetController@newPet');
-
 Route::get('locations/{id}', 'PetController@getLocations');
+
+/**
+ * Ruta para modificar usuario
+ */
+Route::get('/modifyUser', 'UserController@getForm');
+Route::post('/modifyUser', 'UserController@modifyUser');
