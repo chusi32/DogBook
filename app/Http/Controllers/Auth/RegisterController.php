@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use File;
 
 class RegisterController extends Controller
 {
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+
     }
 
     /**
@@ -64,13 +66,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //File::makeDirectory('../public/users/');
-        return User::create([
+        $idUser =  User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'user' => $data['user'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]) -> id;
+
+        if($idUser > 0) {
+            if(!File::exists('../public/media')) {
+                return false;
+            }
+            else {
+                if(!mkdir('../public/media/'.$idUser, 0777)){
+                    return false;
+                }
+                mkdir('../public/media/'.$idUser.'/pets', 0777);
+
+                return User::find($idUser);
+            }
+        }
+        else {
+            return 'No se pudo crear el usuario. Intentelo más tarde';
+        }
+
     }
 }

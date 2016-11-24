@@ -13,12 +13,13 @@ class CreateMascotasTable extends Migration
      */
     public function up()
     {
+
         Schema::create('mascotas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idUsuario')->unsigned();
             $table->index('idUsuario')
-            ->references('id')->on('users')
-            ->onDelete('cascade');
+            ->references('id')->on('users');
+            //->onDelete('cascade');
             $table->string('nombre', 45);
             $table->integer('edad');
             $table->integer('idProvincia')->unsigned();
@@ -30,8 +31,9 @@ class CreateMascotasTable extends Migration
             $table->integer('idRaza')->unsigned();
             $table->index('idRaza')
             ->references('id')->on('razas');
-            $table->string('rutaFoto', 150);
-            $table->string('nombreFoto', 150);
+            $table->integer('idPedigree')->nullable()->unsigned();
+            $table->index('idPedigree')
+            ->references('id')->on('pedigrees');
             $table->timestamps();
         });
     }

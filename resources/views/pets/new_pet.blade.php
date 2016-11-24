@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                   {{ Form::label('name', 'Nombre')}}
-                  {{ Form::text('name', null, array('class' => 'form-control')) }}
+                  {{ Form::text('name', null, array('class' => 'form-control', 'required')) }}
                 </div>
                 <div class="form-group">
                   {{ Form::label('age', 'Edad')}}
