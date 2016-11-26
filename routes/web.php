@@ -59,6 +59,11 @@ Route::post('/updatePet',[
     'as' => 'updatePet',
     'uses' => 'PetController@updatePet'
 ]);
+Route::get('/modifyProfile/{id}', 'PetController@modifyProfile');
+Route::post('/modifyProfilePet',[
+    'as' => 'modifyProfilePet',
+    'uses' => 'PetController@modifyProfilePet'
+]);
 Route::get('/deletePet/{id}', 'PetController@deletePet');
 Route::get('getLocationPet/{id}', 'PetController@getLocationPet');
 

@@ -15,6 +15,7 @@ use Input;
 use Validator;
 use Redirect;
 use App\Http\Requests\ModifiedPetRequest;
+use App\Http\Requests\ImageRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 //use illuminate\Support\Facades\Validator;
 
@@ -147,6 +148,9 @@ class PetController extends Controller
         // TODO:: Falta hacer la funcionalidad.
     }
 
+    /*
+    *Actualiza la información de la mascota.
+    */
     public function updatePet(ModifiedPetRequest $request)
     {
         $pet = Pet::find($request -> id);
@@ -157,5 +161,63 @@ class PetController extends Controller
         $pet -> idRaza = $request -> breed;
         $pet -> save();
         return redirect('/home')->with('message', 'Mascota '.$request -> name. ' modificada correctamente');
+    }
+
+    /*
+    *Devuelve la vista para modificar la información del perfil
+    */
+    public function modifyProfile($id)
+    {
+        try {
+            $pet = Pet::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return "No existe esta mascota";
+        }
+
+        return view('pets.modify_profile_pet', compact('pet'));
+    }
+
+    public function modifyProfilePet(ImageRequest $request)
+    {
+        try {
+            $pet = Pet::findOrFail($request -> id);
+        } catch (ModelNotFoundException $e) {
+            return "No existe esta mascota";
+        }
+
+        if($this->validPet(Auth::user() -> id, $request -> id)) {
+            $this -> modifyImageProfile(Auth::user() -> id, $request);
+            return redirect('/home')->with('message', 'Mascota modificada
+                            correctamente');
+        }
+        else {
+            return "Estas intentando modificar una mascota que no es suya. No seas
+                    cotilla";
+        }
+    }
+
+
+    /*
+    *----------------------- FUNCIONES PRIVADAS -----------------------
+    */
+
+    private function validPet($idUser, $idPet)
+    {
+        $pet = Pet::find($idPet);
+        if ($pet -> idUsuario === $idUser) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private function modifyImageProfile($idCurrentUser, $request)
+    {
+        $path = $idCurrentUser.'/pets';
+        if(File::exists('../public/media/'.$path))
+        {
+            $request->file('image')->move('../public/media/'.$path.'/'.$request->id, 'profile.png');
+        }
     }
 }
