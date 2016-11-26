@@ -29,6 +29,6 @@ class Pet extends Model
 
     public function pedigree()
     {
-      return $this->hasOne('App\Pedigree', 'idPedigree');
+      return $this->hasOne('App\Pedigree', 'id', 'idPedigree');
     }
 }

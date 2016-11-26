@@ -17,7 +17,6 @@ use Redirect;
 use App\Http\Requests\ModifiedPetRequest;
 use App\Http\Requests\ImageRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-//use illuminate\Support\Facades\Validator;
 
 
 class PetController extends Controller
@@ -177,6 +176,9 @@ class PetController extends Controller
         return view('pets.modify_profile_pet', compact('pet'));
     }
 
+    /*
+    *Sustituir imagen del perfil de la mascota.
+    */
     public function modifyProfilePet(ImageRequest $request)
     {
         try {
@@ -193,6 +195,20 @@ class PetController extends Controller
         else {
             return "Estas intentando modificar una mascota que no es suya. No seas
                     cotilla";
+        }
+    }
+
+    public function modifyPedigreePet($id)
+    {
+        if($this->validPet(Auth::user()->id, $id)) {
+            $pet = Pet::find($id);
+            // if($pet->idPedigree == NULL){
+            //     $pet->idPedigree = 0001;
+            // }
+            return view('pets.modify_pedigree_pet', compact('pet'));
+        }
+        else {
+            return "Esta mascota no te pertenece. No seas cotilla.";
         }
     }
 

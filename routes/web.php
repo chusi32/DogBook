@@ -64,6 +64,7 @@ Route::post('/modifyProfilePet',[
     'as' => 'modifyProfilePet',
     'uses' => 'PetController@modifyProfilePet'
 ]);
+Route::get('/modifyPedigreePet/{id}', 'PetController@modifyPedigreePet');
 Route::get('/deletePet/{id}', 'PetController@deletePet');
 Route::get('getLocationPet/{id}', 'PetController@getLocationPet');
 
