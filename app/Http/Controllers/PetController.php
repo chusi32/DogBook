@@ -14,6 +14,8 @@ use File;
 use Input;
 use Validator;
 use Redirect;
+use App\Http\Requests\ModifiedPetRequest;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 //use illuminate\Support\Facades\Validator;
 
 
@@ -99,5 +101,61 @@ class PetController extends Controller
             $locations = Location::locations($id);
             return response()->json($locations);
         }
+    }
+
+    /*
+    *Devuelve por ajax el ID de la localidad para mostrarlo en la edición de la
+    *mascota.
+    */
+    public function getLocationPet(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            $idLocation = Pet::find($id) -> idLocalidad;
+            return response()->json($idLocation);
+        }
+    }
+
+    public function modifyPet($id)
+    {
+        //Se obtinene los datos de la Mascota
+        try
+        {
+            $pet = Pet::findOrFail($id);
+
+
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return "No existe esta mascota";
+        }
+
+        //Se comprueba si esa mascota pertenece al usuario logueado
+        if($pet -> idUsuario == Auth::user() -> id) {
+            $provinces = Province::pluck('nombreProvincia', 'id');
+            $breeds = Breed::pluck('nombreRaza', 'id');
+            return view('pets.modify_pet', compact('pet','provinces', 'breeds'));
+        }
+        else {
+            return "La mascota a la que intenta acceder no le pertenece. No seas cotilla";
+        }
+
+    }
+
+    public function deletePet($id)
+    {
+        // TODO:: Falta hacer la funcionalidad.
+    }
+
+    public function updatePet(ModifiedPetRequest $request)
+    {
+        $pet = Pet::find($request -> id);
+        $pet -> nombre = $request -> name;
+        $pet -> edad = $request -> age;
+        $pet -> idProvincia = $request -> province;
+        $pet -> idLocalidad = $request -> location;
+        $pet -> idRaza = $request -> breed;
+        $pet -> save();
+        return redirect('/home')->with('message', 'Mascota '.$request -> name. ' modificada correctamente');
     }
 }

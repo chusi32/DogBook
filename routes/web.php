@@ -49,11 +49,18 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 /**
- * Rutas para crear nueva mascota
+ * Rutas para mascotas
  */
 Route::get('/newPet', 'PetController@getForm');
 Route::post('/newPet', 'PetController@newPet');
-Route::get('locations/{id}', 'PetController@getLocations');
+Route::get('/locations/{id}', 'PetController@getLocations');
+Route::get('/modifyPet/{id}', 'PetController@modifyPet');
+Route::post('/updatePet',[
+    'as' => 'updatePet',
+    'uses' => 'PetController@updatePet'
+]);
+Route::get('/deletePet/{id}', 'PetController@deletePet');
+Route::get('getLocationPet/{id}', 'PetController@getLocationPet');
 
 /**
  * Ruta para modificar usuario

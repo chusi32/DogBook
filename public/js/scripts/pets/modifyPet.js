@@ -1,10 +1,25 @@
+var idProvince = 0;
+var idLocation = 0;
+
 $(document).ready(function(){
+    //Obtener la localidad de la mascota.
+    $.get('/getLocationPet/' + $('#id').val(), function(response, location){
+            idLocation = response;
+    });
+
     //inicializar select localidades
-    $.get('/locations/1', function(response, province){
+        idProvince = $('#province').val();
+    $.get('/locations/' + idProvince, function(response, province){
         $('#location').empty();
         for(i=0; i<response.length; i++)
         {
-            $('#location').append('<option value="' + response[i].id + '">' + response[i].nombreLocalidad + '</option>');
+            if(idLocation === response[i].id){
+                $('#location').append('<option value="' + response[i].id + '" selected>' + response[i].nombreLocalidad + '</option>');
+            }
+            else {
+                $('#location').append('<option value="' + response[i].id + '">' + response[i].nombreLocalidad + '</option>');
+            }
+
         }
     });
 
@@ -25,7 +40,7 @@ $(document).ready(function(){
 });
 
 $('#province').change(function(event){
-    $.get('/locations/' + event.target.value, function(response, province){
+    $.get('/locations/' + event.target.value , function(response, province){
         $('#location').empty();
         for(i=0; i<response.length; i++)
         {
@@ -38,7 +53,6 @@ $('#province').change(function(event){
 /*
     PARA EL INPUT FILE
  */
-
 $(function() {
     // Create the close button
     var closebtn = $('<button/>', {
