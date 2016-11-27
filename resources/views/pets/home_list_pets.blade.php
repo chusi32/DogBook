@@ -25,7 +25,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/modifyProfile'.'/'.$value['id']) }}">Cambiar imagen de perfil</a></li>
                                     <li><a href="{{ url('/modifyPet'.'/'.$value['id']) }}">Modificar datos</a></li>
-                                    <li><a href="{{ url('/modifyPedigreePet'.'/'.$value['id']) }}">Modificar Pedigree</a></li>
+                                    <li><a href="{{ url('/modifyPedigreePetForm'.'/'.$value['id']) }}">Modificar Pedigree</a></li>
                                     <li><a href="{{ url('/deletePet'.'/'.$value['id']) }}">Eliminar</a></li>
                                 </ul>
                             </div>

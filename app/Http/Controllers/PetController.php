@@ -16,6 +16,7 @@ use Validator;
 use Redirect;
 use App\Http\Requests\ModifiedPetRequest;
 use App\Http\Requests\ImageRequest;
+use App\Http\Requests\ModifyPedigreeRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
@@ -198,7 +199,10 @@ class PetController extends Controller
         }
     }
 
-    public function modifyPedigreePet($id)
+    /*
+    *Devuelve el formulario para modificar el pedigree.
+    */
+    public function modifyPedigreePetForm($id)
     {
         if($this->validPet(Auth::user()->id, $id)) {
             $pet = Pet::find($id);
@@ -212,11 +216,42 @@ class PetController extends Controller
         }
     }
 
+    public function modifyPedigreePet(ModifyPedigreeRequest $request)
+    {
+        if($this->validPet(Auth::user()->id, $request->id))
+        {
+            try
+            {
+                $pet = Pet::findOrFail($request->id);
+                if(isset($pet->pedigree)) {
+                    $pedigree = Pedigree::find($pet->idPedigree);
+                    $pedigree->nombrePadre = $request->nameFather;
+                    $pedigree->nombreMadre = $request->nameMother;
+                    $pedigree->detalles = $request->description;
+                    $pedigree->save();
+                    //return $pet;
+                    return redirect('/home')->with('message', 'Pedigree de '.$pet->nombre.
+                                    ' modificado correctamente');
+                }
+            }
+            catch (ModelNotFoundException $e) {
+                return "La mascota que se intenta modificar no existe";
+            }
+        }
+        else
+        {
+            return "La mascota que intenta modificar no es suya.
+                    Por favor, no sea cotilla";
+        }
+    }
 
     /*
     *----------------------- FUNCIONES PRIVADAS -----------------------
     */
 
+    /*
+    *Comprueba que la mascota pertenece al usuario logueado
+    */
     private function validPet($idUser, $idPet)
     {
         $pet = Pet::find($idPet);
@@ -228,6 +263,9 @@ class PetController extends Controller
         }
     }
 
+    /*
+    *guarda la imagen de perfil.
+    */
     private function modifyImageProfile($idCurrentUser, $request)
     {
         $path = $idCurrentUser.'/pets';

@@ -27,9 +27,9 @@
             {{-- TODO: Para la publicidad --}}
         </div>
         <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
-            {{ Form::open(array('method' => 'POST', 'files' => true), array('role' => 'form')) }}
+            {{ Form::open(array('route'=>'modifyPedigreePet', 'method' => 'POST'), array('role' => 'form')) }}
                 {{ csrf_field() }}
-                {{ Form::hidden('idPet', $pet->id, array('id'=>'idPet'))}}
+                {{ Form::hidden('id', $pet->id)}}
                 <div class="form-group">
                     {{ Form::label('nameFather', 'Nombre del padre')}}
                     @if (!isset($pet->pedigree))
@@ -37,8 +37,12 @@
                     @else
                         {{ Form::text('nameFather', $pet->pedigree->nombrePadre, array('class' => 'form-control', 'required')) }}
                     @endif
-
                 </div>
+                @if ($errors->has('nameFather'))
+                    <span class="help-block">
+                        <strong class="alert-danger text-danger">{{ $errors->first('nameFather') }}</strong>
+                    </span>
+                @endif
                 <div class="form-group">
                     {{ Form::label('nameMother', 'Nombre de la madre')}}
                     @if (!isset($pet->pedigree))
@@ -47,6 +51,11 @@
                         {{ Form::text('nameMother', $pet->pedigree->nombreMadre, array('id' => 'nameMother', 'class' => 'form-control', 'required')) }}
                     @endif
                 </div>
+                @if ($errors->has('nameMother'))
+                    <span class="help-block">
+                        <strong class="alert-danger text-danger">{{ $errors->first('nameMother') }}</strong>
+                    </span>
+                @endif
                 <div class="form-group">
                     {{ Form::label('description', 'Descripción del pedegree')}}
                     @if (!isset($pet->pedigree))
@@ -55,6 +64,11 @@
                         {{ Form::textarea('description', $pet->pedigree->detalles, ['id' => 'description','class' => 'form-control', 'required']) }}
                     @endif
                 </div>
+                @if ($errors->has('description'))
+                    <span class="help-block">
+                        <strong class="alert-danger text-danger">{{ $errors->first('description') }}</strong>
+                    </span>
+                @endif
                 {{ Form::submit('Enviar')}}
             {{ Form::close()}}
         </div>
