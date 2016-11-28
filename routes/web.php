@@ -77,3 +77,8 @@ Route::get('getLocationPet/{id}', 'PetController@getLocationPet');
  */
 Route::get('/modifyUser', 'UserController@getForm');
 Route::post('/modifyUser', 'UserController@modifyUser');
+
+/**
+* Ruta para el home de la mascota.
+*/
+Route::get('/homePet/{id}', 'HomePetController@homePet');

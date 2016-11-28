@@ -10,7 +10,7 @@
                     <div class="row">
                         <div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                <a class="pull-left" href="#">
+                                <a class="pull-left" href="{{url('/homePet'.'/'.$value['id'])}}">
                                     {!! Html::image(asset('media/'.$value['idUsuario'].'/pets'.'/'.$value['id'].'/profile.png'), 'imágen perfil',
                                         array('class' => 'img-responsive media-object dp img-circle', 'style' => '100px;height:100px;')) !!}
                                 </a>

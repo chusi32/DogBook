@@ -216,6 +216,9 @@ class PetController extends Controller
         }
     }
 
+    /*
+    *Actualizar información de pedigree
+    */
     public function modifyPedigreePet(ModifyPedigreeRequest $request)
     {
         if($this->validPet(Auth::user()->id, $request->id))
@@ -223,7 +226,8 @@ class PetController extends Controller
             try
             {
                 $pet = Pet::findOrFail($request->id);
-                if(isset($pet->pedigree)) {
+                if(isset($pet->pedigree))
+                {
                     $pedigree = Pedigree::find($pet->idPedigree);
                     $pedigree->nombrePadre = $request->nameFather;
                     $pedigree->nombreMadre = $request->nameMother;
@@ -232,6 +236,27 @@ class PetController extends Controller
                     //return $pet;
                     return redirect('/home')->with('message', 'Pedigree de '.$pet->nombre.
                                     ' modificado correctamente');
+                }
+                else
+                {
+                    $pedigreeId = Pedigree::create([
+                            'nombrePadre' => $request->nameFather,
+                            'nombreMadre' => $request->nameMother,
+                            'detalles' => $request->description
+                    ])->id;
+
+                    if($pedigreeId > 0)
+                    {
+                            $pet->idPedigree = $pedigreeId;
+                            $pet->save();
+                            return redirect('/home')->with('message', 'Pedigree de '.$pet->nombre.
+                                            ' modificado correctamente');
+                    }
+                    else
+                    {
+                        return "No se pudo modificar el pedigree. Porfavor,
+                                inténtelo más tarde.";
+                    }
                 }
             }
             catch (ModelNotFoundException $e) {
