@@ -22,7 +22,7 @@ class HomePetController extends Controller
             try
             {
                 $pet = Pet::findOrFail($id);
-                return view('homePet.home_pet', compact('pet'));
+                return view('wall.wall', compact('pet'));
             }
             catch (ModelNotFoundException $e)
             {

@@ -26,7 +26,19 @@
             {{-- TODO: Para la publicidad --}}
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
-            {{-- @include('') --}}
+            <div class="comments-list">
+                <div class="media">
+                    <p class="pull-right"><small>5 days ago</small></p>
+                    <a class="media-left" href="#">
+                        <img src="http://lorempixel.com/40/40/people/1/">
+                    </a>
+                    <div class="media-body">
+                          <h4 class="media-heading user_name">Baltej Singh</h4>
+                          Wow! this is really great.
+                          <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2 sidebar1">
             @include('menus.menu_home_pet')

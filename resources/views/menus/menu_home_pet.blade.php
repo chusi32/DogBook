@@ -5,23 +5,12 @@
 <br>
 <div class="left-navigation">
     <ul class="list">
-        <h3 class="text-center"><strong>{{$pet->nombre}}</strong></h3>
-        <li>Home</li>
-        <li>Office</li>
-        <li>School</li>
-        <li>Gym</li>
-        <li>Art Class</li>
-        <li>Hike Club</li>
-    </ul>
-    <br>
-    <ul class="list">
-        <h5><strong>HOBBIES</strong></h5>
-        <li>Hiking</li>
-        <li>Rafting</li>
-        <li>Badminton</li>
-        <li>Tennis</li>
-        <li>Sketching</li>
-        <li>Horse Riding</li>
+        <h3><strong>{{$pet->nombre}}</strong></h3>
+        <li>Muro</li>
+        <li>Galeria</li>
+        <li>Mensajes</li>
+        <li>Amigos</li>
+        <li>Notificaciones</li>
     </ul>
 </div>
 

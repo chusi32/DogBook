@@ -33,30 +33,6 @@
         </div>
     </div>
 </div>
-
-        {{-- <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in! id usuario
-                </div>
-
-
-                <div>
-                    @foreach($id as $item )
-                        {
-                            <label>{{ $item['nombre'] }}</label>
-                        }
-                    @endforeach
-                </div>
-
-
-            </div>
-        </div> --}}
-
-    {{-- </div> --}}
-
 @endsection
 
 @section('js')
