@@ -34,6 +34,9 @@ class CreateMascotasTable extends Migration
             $table->integer('idPedigree')->nullable()->unsigned();
             $table->index('idPedigree')
             ->references('id')->on('pedigrees');
+            $table->integer('idMuro');
+            $table->index('idMuro')
+            ->references('id')->on('muros');
             $table->timestamps();
         });
     }

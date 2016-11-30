@@ -9,7 +9,8 @@ class Pet extends Model
     protected $table = 'mascotas';
 
     protected $fillable = [
-      'idUsuario', 'nombre', 'edad', 'idProvincia', 'idLocalidad', 'idRaza', 'idPedigree'
+      'idUsuario', 'nombre', 'edad', 'idProvincia', 'idLocalidad', 'idRaza', 'idPedigree',
+      'idMuro'
     ];
 
     public function breed()
@@ -30,5 +31,10 @@ class Pet extends Model
     public function pedigree()
     {
       return $this->hasOne('App\Pedigree', 'id', 'idPedigree');
+    }
+
+    public function wall()
+    {
+        return $this->hasOne('App\Wall', 'id', 'idMuro');
     }
 }

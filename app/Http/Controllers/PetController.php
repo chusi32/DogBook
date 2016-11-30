@@ -10,6 +10,8 @@ use App\Location;
 use App\Breed;
 use App\Pet;
 use App\Pedigree;
+use App\Wall;
+use App\Message;
 use File;
 use Input;
 use Validator;
@@ -65,7 +67,8 @@ class PetController extends Controller
             'edad' =>  $data['age'],
             'idProvincia' =>  $data['province'],
             'idLocalidad' =>  $data['location'],
-            'idRaza' =>  $data['breed']
+            'idRaza' =>  $data['breed'],
+            'idMuro' => 0
         ]) -> id;
 
         //Se guarda la foto de perfil. Si no se ha seleccionado ninguna,
@@ -81,6 +84,8 @@ class PetController extends Controller
                 copy('../public/resources/images/profile.png', '../public/media/'.$path.'/'.$idPet.'/profile.png');
             }
         }
+        //Se crea el directorio para almacenar las fotos del muro
+        mkdir('../public/media/'.$path.'/'.$idPet.'/wall', 0777);
         //Se guarda la información del pedigree si se ha seleccionado que tiene.
         if(isset($data['chkPedigree'])){
             $idPedigree = Pedigree::create([
@@ -92,6 +97,21 @@ class PetController extends Controller
             $pet -> idPedigree = $idPedigree;
             $pet -> save();
         }
+
+        //Se crea un nuevo muro para esta mascota
+        $idWall = Wall::create([
+            'idMascota' => $idPet
+        ])->id;
+        $pet = Pet::find($idPet);
+        $pet->idMuro = $idWall;
+        $pet->save();
+
+        //Se crea el mensaje de Bienvenida en el muro de la mascota
+        Message::create([
+            'idMuro' => $idWall,
+            'idMascota' => $idPet,
+            'mensaje' => "!Hoy me uno a la manada de DogBook¡"
+        ]);
         return redirect('/home')->with('message', 'Mascota creada correctamente');
     }
 

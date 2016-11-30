@@ -81,4 +81,8 @@ Route::post('/modifyUser', 'UserController@modifyUser');
 /**
 * Ruta para el home de la mascota.
 */
-Route::get('/homePet/{id}', 'HomePetController@homePet');
+Route::get('/wall/{id}', 'WallController@getWallPet');
+Route::post('/newMessage', [
+    'as' => 'newMessage',
+    'uses' => 'WallController@newWallMessage'
+]);
