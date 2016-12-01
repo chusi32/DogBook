@@ -77,10 +77,13 @@
                         <div class="media-body">
                               <h4 class="media-heading user_name">{{$value['nombreMascota']}}</h4>
                               {{$value['mensaje']}}
-                              <div class="embed-responsive embed-responsive-16by9">
-                                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/F0TPwpzaxeg"></iframe>
-                                  {{-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe> --}}
-                              </div>
+                              @if(isset($value['video']))
+                                  <div class="embed-responsive embed-responsive-16by9">
+                                      <iframe class="embed-responsive-item" src="{{$value['video']}}"></iframe>
+                                      {{-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe> --}}
+                                  </div>
+                              @endif
+
                               <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
                         </div>
                     </div>

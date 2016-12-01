@@ -41,6 +41,7 @@ class WallController extends Controller
                     $item['idMuro'] = $value->idMuro;
                     $item['mensaje'] = $value->mensaje;
                     $item['fecha'] = $value->created_at;
+                    $item['video'] = $value->urlVideo;
                     $item['idMascota'] = $value->idMascota;
                     $item['nombreMascota'] = $value->pet->nombre;
                     $item['idUsuario'] = $value->pet->idUsuario;
@@ -90,7 +91,7 @@ class WallController extends Controller
             'idMascota' => $request->idPet,
             'mensaje' => $request->message,
             'urlVideo' => $request->video,
-            'urlImagen' => $request->image,
+            'urlImagen' => $request->image->getClientOriginalName(),
             'privado' => 0
         ])->id;
 
@@ -100,7 +101,7 @@ class WallController extends Controller
             if(!empty($request->image))
             {
                 $pet = Pet::find($request->idPet);
-                $request->file('image')->move('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall', $request->image);
+                $request->file('image')->move('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall', $request->image->getClientOriginalName());
                 return 'Se ha guardado';//return redirect('/home')->with('message', 'Mascota creada correctamente');
             }
             $this->getWallPet($request->idPet);
