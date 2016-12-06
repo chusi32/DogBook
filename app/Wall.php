@@ -14,6 +14,6 @@ class Wall extends Model
 
     public function messages()
     {
-        return $this->hasMany('App\Message', 'idMuro');
+        return $this->hasMany('App\Message', 'idMuro')->orderBy('created_at', 'desc');
     }
 }

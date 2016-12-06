@@ -41,6 +41,7 @@ class WallController extends Controller
                     $item['idMuro'] = $value->idMuro;
                     $item['mensaje'] = $value->mensaje;
                     $item['fecha'] = $value->created_at;
+                    $item['imagen'] = $value->urlImagen;
                     $item['video'] = $value->urlVideo;
                     $item['idMascota'] = $value->idMascota;
                     $item['nombreMascota'] = $value->pet->nombre;
@@ -67,6 +68,7 @@ class WallController extends Controller
     public function newWallMessage(Request $request)
     {
         //Se crean las reglas de validación dependiendo de los datos que se envien
+
         $rules = [];
         if(!empty($request->message))
         {
@@ -90,8 +92,8 @@ class WallController extends Controller
             'idMuro' => $request->idWall,
             'idMascota' => $request->idPet,
             'mensaje' => $request->message,
-            'urlVideo' => $request->video,
-            'urlImagen' => $request->image->getClientOriginalName(),
+            'urlVideo' => (empty($request->video) ? null : $request->video),
+            'urlImagen' => (isset($request->image) ? $request->image->getClientOriginalName() : null),
             'privado' => 0
         ])->id;
 
@@ -102,15 +104,28 @@ class WallController extends Controller
             {
                 $pet = Pet::find($request->idPet);
                 $request->file('image')->move('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall', $request->image->getClientOriginalName());
-                return 'Se ha guardado';//return redirect('/home')->with('message', 'Mascota creada correctamente');
+                //return 'Se ha guardado';//return redirect('/home')->with('message', 'Mascota creada correctamente');
+                return $this->getWallPet($request->idPet);
             }
-            $this->getWallPet($request->idPet);
+            return $this->getWallPet($request->idPet);
         }
         else
         {
             return 'Hubo un problema. Inténtelo más tarde';
         }
 
+    }
+
+    public function deleteMessageWall($id, Request $request)
+    {
+        if($request->ajax())
+        {
+            $message = Message::find($id);
+            $message->delete();
+            return response()->json([
+                'message' => 'Mensaje eliminado con éxito'
+            ]);
+        }
     }
 
     /*

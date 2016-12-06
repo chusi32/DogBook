@@ -86,3 +86,11 @@ Route::post('/newMessage', [
     'as' => 'newMessage',
     'uses' => 'WallController@newWallMessage'
 ]);
+Route::delete('/deleteMessageWall/{id}', [
+    'as' => 'deleteMessageWall',
+    'uses' => 'WallController@deleteMessageWall'
+]);
+// Route::post('/deleteMessageWall', [
+//     'as' => 'deleteMessageWall',
+//     'uses' => 'WallController@deleteMessageWall'
+//     ]);
