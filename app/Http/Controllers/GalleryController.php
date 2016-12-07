@@ -9,6 +9,7 @@ use App\Pet;
 use App\Gallery;
 use Auth;
 use Session;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests\ImageRequest;
 
 class GalleryController extends Controller
@@ -27,8 +28,6 @@ class GalleryController extends Controller
         $gallery = $pet->gallery;
         $images = $gallery->images;
         return view('gallery.gallery', compact('pet', 'images'));
-
-
     }
 
     /**
@@ -79,6 +78,44 @@ class GalleryController extends Controller
         else {
             return "Estas intentando modificar una mascota que no es suya. No seas
                     cotilla";
+        }
+    }
+
+    /**
+    *   Función que elimina una imágen de la galeria
+    */
+    public function deleteImageGallery($id, Request $request)
+    {
+        if($request->ajax())
+        {
+            // return response()->json([
+            //     'message' => $id
+            // ]);
+            try
+            {
+                $image = Image::findOrFail($id);
+                $pet = Pet::findOrFail(Session::get('pet'));
+            }
+            catch(ModelNotFoundException $e)
+            {
+                return response()->json([
+                    'message' => "Ocurrió un error: ".$e->getMessage()
+                ]);
+            }
+
+            if(unlink('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen))
+            {
+                $image->delete();
+                return response()->json([
+                    'message' => 'Imágen eliminada con éxito'
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'message' => 'La imágen no pudo borrarse. Inténtalo más tarde'
+                ]);
+            }
         }
     }
 

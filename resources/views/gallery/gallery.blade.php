@@ -10,7 +10,7 @@
 @endsection
 
 @section('headJs')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 @endsection
 
 @section('content')
@@ -60,7 +60,7 @@
             {{-- TODO: Para la publicidad --}}
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8" id="principalPanel">
-            @if($images == null)
+            @if(count($images) == 0)
                 <div class="alert alert-dismissible alert-info">
                     <p>
                         Todavía no has subido ninguna imágen.

@@ -96,7 +96,11 @@ Route::post('/saveImage', [
     'uses' => 'GalleryController@saveImage'
 ]);
 
-
+/**
+*   Ruta para la galeria de imágenes
+*/
 Route::get('/getGallery', 'GalleryController@index');
-Route::post('CreateImage','ImageController@store');
-Route::resource('images','ImageController');
+Route::delete('/deleteImageGallery/{id}', [
+    'as' => 'deleteImageGallery',
+    'uses' => 'GalleryController@deleteImageGallery'
+]);

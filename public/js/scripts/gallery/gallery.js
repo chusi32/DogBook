@@ -1,16 +1,10 @@
 $(document).ready(function(){
 
-    $(".fancybox").fancybox({
-       openEffect: "none",
-       closeEffect: "none"
-   });
-    // Se oculta el formulario de añadir entrada
-    // $('#formNewMessage').hide();
 
-    //Evento al pulsar el boton de nuevo mensaje. (Mostrar u ocultar formulario)
-    // $('#btnNewMessage').click(function(){
-    //     $('#formNewMessage').toggle();
-    // });
+    // $('.btnDeleteMessage').click(function(event){alert("hola puto");});
+
+    //Init
+
 
     //Se comprueba si se envian datos y si no se cancela el envio del formulario.
     $('#formNewImage').submit(function( event ) {
@@ -21,6 +15,28 @@ $(document).ready(function(){
         else
         {
             return true;
+        }
+    });
+
+    //Evento eliminar imagen
+    $('.deleteImage').click(function(event){
+        event.preventDefault();
+
+        if (confirm('Esta acción no puede deshacerse. ¿Desea continuar?'))
+        {
+            var image = $(this).parents('.divImage');
+            var id = image.data('id');
+            var form = $('#formDeleteImageGallery');
+            var url = form.attr('action').replace(':IMAGE_ID', id);
+            var data = form.serialize();
+
+            $.post(url, data, function(result){
+                alert(result.message);
+                image.fadeOut();
+            }).fail(function(){
+                alert('Ocurrio un problema al eliminar. Intentelo más tarde');
+                image.show();
+            });
         }
     });
 

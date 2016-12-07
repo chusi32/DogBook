@@ -118,6 +118,9 @@ class WallController extends Controller
 
     }
 
+    /**
+    *   Función que elimina un mensaje del muro
+    */
     public function deleteMessageWall($id, Request $request)
     {
         if($request->ajax())
