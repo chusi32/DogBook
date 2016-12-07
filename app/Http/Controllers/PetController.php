@@ -12,6 +12,7 @@ use App\Pet;
 use App\Pedigree;
 use App\Wall;
 use App\Message;
+use App\Gallery;
 use File;
 use Input;
 use Validator;
@@ -86,6 +87,10 @@ class PetController extends Controller
         }
         //Se crea el directorio para almacenar las fotos del muro
         mkdir('../public/media/'.$path.'/'.$idPet.'/wall', 0777);
+
+        //Se crea el directorio para almacenar las fotos de la galeria
+        mkdir('../public/media/'.$path.'/'.$idPet.'/gallery', 0777);
+
         //Se guarda la información del pedigree si se ha seleccionado que tiene.
         if(isset($data['chkPedigree'])){
             $idPedigree = Pedigree::create([
@@ -112,6 +117,12 @@ class PetController extends Controller
             'idMascota' => $idPet,
             'mensaje' => "!Hoy me uno a la manada de DogBook¡"
         ]);
+
+        //Se crea una nueva galeria para la mascota.
+        Gallery::create([
+            'idMascota' => $idPet
+        ]);
+
         return redirect('/home')->with('message', 'Mascota creada correctamente');
     }
 

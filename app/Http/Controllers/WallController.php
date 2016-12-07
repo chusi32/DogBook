@@ -12,6 +12,7 @@ use App\User;
 use App\Message;
 use Auth;
 use Validator;
+use Session;
 
 
 class WallController extends Controller
@@ -49,6 +50,7 @@ class WallController extends Controller
 
                     $messages[$key] = $item;
                 }
+                Session::put('pet', $id);
                 return view('wall.wall', compact('pet','messages'));
             }
             catch (ModelNotFoundException $e)
@@ -121,6 +123,11 @@ class WallController extends Controller
         if($request->ajax())
         {
             $message = Message::find($id);
+            $pet = $message->pet;
+            if(!is_null($message->urlImagen))
+            {
+                unlink('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall'.'/'.$message->urlImagen);
+            }
             $message->delete();
             return response()->json([
                 'message' => 'Mensaje eliminado con éxito'

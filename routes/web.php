@@ -90,7 +90,13 @@ Route::delete('/deleteMessageWall/{id}', [
     'as' => 'deleteMessageWall',
     'uses' => 'WallController@deleteMessageWall'
 ]);
-// Route::post('/deleteMessageWall', [
-//     'as' => 'deleteMessageWall',
-//     'uses' => 'WallController@deleteMessageWall'
-//     ]);
+
+Route::post('/saveImage', [
+    'as' => 'saveImage',
+    'uses' => 'GalleryController@saveImage'
+]);
+
+
+Route::get('/getGallery', 'GalleryController@index');
+Route::post('CreateImage','ImageController@store');
+Route::resource('images','ImageController');

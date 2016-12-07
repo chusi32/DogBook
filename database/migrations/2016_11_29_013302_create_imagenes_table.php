@@ -18,6 +18,7 @@ class CreateImagenesTable extends Migration
             $table->integer('idGaleria');
             $table->index('idGaleria')
             ->references('id')->on('galerias');
+            $table->string('ruta', 500);
             $table->string('imagen', 500);
             $table->string('titulo', 500)->nullable();
             $table->timestamps();

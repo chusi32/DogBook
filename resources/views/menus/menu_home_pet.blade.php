@@ -7,7 +7,7 @@
     <ul class="list">
         <h3><strong>{{$pet->nombre}}</strong></h3>
         <li>Muro</li>
-        <li>Galeria</li>
+        <a href="{{ url('/getGallery') }}"><li>Galeria</li></a>
         <li>Mensajes</li>
         <li>Amigos</li>
         <li>Notificaciones</li>

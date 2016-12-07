@@ -83,7 +83,7 @@
                               @endif
                               @if(!is_null($value['video']))
                                   <div class="embed-responsive embed-responsive-16by9">
-                                      <iframe class="embed-responsive-item" src="{{$value['video']}}"></iframe>
+                                      <iframe class="embed-responsive-item" src="{{$value['video']}}" allowfullscreen></iframe>
                                       {{-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe> --}}
                                   </div>
                               @endif

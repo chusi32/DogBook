@@ -37,4 +37,9 @@ class Pet extends Model
     {
         return $this->hasOne('App\Wall', 'id', 'idMuro');
     }
+
+    public function gallery()
+    {
+        return $this->hasOne('App\Gallery', 'idMascota', 'id');
+    }
 }

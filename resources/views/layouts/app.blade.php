@@ -15,6 +15,9 @@
     <link href="/css/app.css" rel="stylesheet">
     @yield('css')
 
+    <!-- Scripts Head -->
+    @yield('headJs')
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
