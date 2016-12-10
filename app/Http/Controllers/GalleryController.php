@@ -11,6 +11,7 @@ use Auth;
 use Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests\ImageRequest;
+use View;
 
 class GalleryController extends Controller
 {
@@ -60,6 +61,10 @@ class GalleryController extends Controller
 
                 if($idImage > 0)
                 {
+                    // $images = $gallery->images;
+                    // $view = View::make('gallery.images')->with('images', $images)
+                    //                                     ->with('pet', $pet);
+                    // return $view->renderSections()['galeria'];
                     return $this->index(session::get('pet'));
                 }
                 else {
@@ -72,8 +77,8 @@ class GalleryController extends Controller
                 return "No se pudo guardar la imágen. Inténtalo más tarde";
             }
 
-            return redirect('/home')->with('message', 'Mascota modificada
-                            correctamente');
+            // return redirect('/home')->with('message', 'Mascota modificada
+            //                 correctamente');
         }
         else {
             return "Estas intentando modificar una mascota que no es suya. No seas

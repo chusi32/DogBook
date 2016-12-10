@@ -59,8 +59,8 @@
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
             {{-- TODO: Para la publicidad --}}
         </div>
-        <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8" id="principalPanel">
-            @if(count($images) == 0)
+        <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
+            @if(count($images))
                 <div class="alert alert-dismissible alert-info">
                     <p>
                         Todavía no has subido ninguna imágen.

@@ -8,6 +8,7 @@
         <h3><strong>{{$pet->nombre}}</strong></h3>
         <li>Muro</li>
         <a href="{{ url('/getGallery') }}"><li>Galeria</li></a>
+        <a href="{{ url('/browser') }}"><li>Buscador</li></a>
         <li>Mensajes</li>
         <li>Amigos</li>
         <li>Notificaciones</li>
