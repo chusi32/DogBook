@@ -22,6 +22,7 @@ class CreateMascotasTable extends Migration
             //->onDelete('cascade');
             $table->string('nombre', 45);
             $table->integer('edad');
+            $table->string('sexo', 6);
             $table->integer('idProvincia')->unsigned();
             $table->index('idProvincia')
             ->references('id')->on('provincias');

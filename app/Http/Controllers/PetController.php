@@ -66,6 +66,7 @@ class PetController extends Controller
             'idUsuario' => $currentUser -> id,
             'nombre' => $data['name'],
             'edad' =>  $data['age'],
+            'sexo' => $data['sex'],
             'idProvincia' =>  $data['province'],
             'idLocalidad' =>  $data['location'],
             'idRaza' =>  $data['breed'],
@@ -187,6 +188,7 @@ class PetController extends Controller
         $pet = Pet::find($request -> id);
         $pet -> nombre = $request -> name;
         $pet -> edad = $request -> age;
+        $pet -> sexo = $request -> sex;
         $pet -> idProvincia = $request -> province;
         $pet -> idLocalidad = $request -> location;
         $pet -> idRaza = $request -> breed;

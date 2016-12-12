@@ -6,7 +6,7 @@
 
 @section('css')
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles/gallery/gallery.css" rel="stylesheet">
+    <link href="/css/styles/browser/browser.css" rel="stylesheet">
 @endsection
 
 @section('headJs')
@@ -29,12 +29,12 @@
             {{-- TODO: Para la publicidad --}}
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
-            {{ Form::open() }}
+            {{ Form::open(array('route' => 'search', 'method' => 'POST', 'id' => 'formBrowser'), array('role' => 'form')) }}
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="form-group">
-                                {{ Form::text('name', null, array('class' => 'form-control', 'placeholder'=>'Nombre de mascota')) }}
+                                {{ Form::text('name', null, array('id'=>'name', 'class' => 'form-control', 'placeholder'=>'Nombre de mascota')) }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -80,11 +80,11 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             {{ Form::close() }}
+
+            <div id="searchResult">
+            </div>
+
         </div>
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2 sidebar1">
             @include('menus.menu_home_pet')

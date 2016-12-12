@@ -109,3 +109,7 @@ Route::delete('/deleteImageGallery/{id}', [
 *   Ruta para el buscador
 */
 Route::get('/browser', 'BrowserController@index');
+Route::post('/search', [
+    'as' => 'search',
+    'uses' => 'BrowserController@search'
+]);

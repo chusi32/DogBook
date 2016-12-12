@@ -9,10 +9,13 @@ class Pet extends Model
     protected $table = 'mascotas';
 
     protected $fillable = [
-      'idUsuario', 'nombre', 'edad', 'idProvincia', 'idLocalidad', 'idRaza', 'idPedigree',
+      'idUsuario', 'nombre', 'edad', 'sexo', 'idProvincia', 'idLocalidad', 'idRaza', 'idPedigree',
       'idMuro'
     ];
 
+    /**
+    *   RELACIONES
+    */
     public function breed()
     {
         return $this->hasOne('App\Breed', 'idRaza');
@@ -41,5 +44,16 @@ class Pet extends Model
     public function gallery()
     {
         return $this->hasOne('App\Gallery', 'idMascota', 'id');
+    }
+
+    /**
+    *   FILTROS
+    */
+    public function scopeName($query, $name)
+    {
+        if(trim($name) != "")
+        {
+            $query->where('nombre', 'LIKE', "%$name%");
+        }
     }
 }

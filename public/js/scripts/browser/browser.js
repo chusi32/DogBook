@@ -33,3 +33,18 @@ $(document).ready(function(){
         $('#divBreed').toggle('fast');
     });
 });
+
+//Enviar formulario al pulsar boton
+$('#btnSearch').click(function(event) {
+    var form = $('#formBrowser');
+    var url = form.attr('action');
+    var data = form.serialize();
+
+    $.post(url, data, function(result){
+        $('#searchResult').empty().html(result.message);
+        //message.fadeOut();
+    }).fail(function(){
+        alert('Ocurrio un problema al buscar. Intentelo más tarde');
+        // message.show();
+    });
+});

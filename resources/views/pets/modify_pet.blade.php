@@ -44,6 +44,15 @@
                     </span>
                 @endif
                 <div class="form-group">
+                  {{ Form::label('sex', 'Sexo')}}
+                  {{ Form::select('sex', ['macho' => 'Macho', 'hembra' => 'Hembra'], $pet -> sexo, ['class' => 'form-control']) }}
+                </div>
+                @if ($errors->has('sex'))
+                    <span class="help-block">
+                        <strong class="alert-danger text-danger">{{ $errors->first('sex') }}</strong>
+                    </span>
+                @endif
+                <div class="form-group">
                   {{ Form::label('province', 'Provincia')}}
                   {{ Form::select('province',$provinces, $pet -> idProvincia,['class' => 'form-control']) }}
                 </div>

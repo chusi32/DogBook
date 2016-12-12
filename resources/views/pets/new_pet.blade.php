@@ -53,6 +53,10 @@
                   {{ Form::selectRange('age', 1, 20, 1, ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
+                  {{ Form::label('sex', 'Sexo')}}
+                  {{ Form::select('sex', ['macho' => 'Macho', 'hembra' => 'Hembra'], null, ['class' => 'form-control']) }}
+                </div>
+                <div class="form-group">
                   {{ Form::label('province', 'Provincia')}}
                   {{ Form::select('province',$provinces, null,['id' => 'province','class' => 'form-control']) }}
                 </div>
