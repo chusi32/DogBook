@@ -51,9 +51,31 @@ class Pet extends Model
     */
     public function scopeName($query, $name)
     {
-        if(trim($name) != "")
-        {
             $query->where('nombre', 'LIKE', "%$name%");
+    }
+
+    public function scopeSex($query, $chkSex, $sex)
+    {
+        if(isset($chkSex))
+        {
+            $query->where('sexo', '=', $sex);
+        }
+    }
+
+    public function scopeBreed($query, $chkBreed, $breed)
+    {
+        if(isset($chkBreed))
+        {
+            $query->where('idRaza', '=', $breed);
+        }
+    }
+
+    public function scopeLocalization($query, $chkProvince, $province, $location)
+    {
+        if(isset($chkProvince))
+        {
+            $query->where('idProvincia', '=', $province)
+                    ->where('idLocalidad', '=', $location);
         }
     }
 }

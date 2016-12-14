@@ -30,6 +30,7 @@
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
             {{ Form::open(array('route' => 'search', 'method' => 'POST', 'id' => 'formBrowser'), array('role' => 'form')) }}
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -54,8 +55,7 @@
                                 {{ Form::checkbox('chkSex', null, null, ['id' => 'chkSex', 'class' => 'field']) }}
                             </div>
                             <div class="form-group" id="divSex">
-                                {{ Form::radio('sex', 'Asma', false, array('id'=>'male')) }}Macho
-                                {{ Form::radio('sex', 'Asma', false, array('id'=>'female')) }}Hembra
+                                {{ Form::select('sex', ['macho' => 'Macho', 'hembra' => 'Hembra'], null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('Provincia y Localidad')}}

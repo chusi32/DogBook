@@ -26,7 +26,7 @@
     </div>
     <hr />
 @endforeach
-{{-- {!! $pets->render() !!} --}}
+{!! $pets->render() !!}
 
 
 

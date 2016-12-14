@@ -6,6 +6,7 @@ use App\Pet;
 use App\Province;
 use App\Breed;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use View;
@@ -42,26 +43,19 @@ class BrowserController extends Controller
     {
         if($request->ajax())
         {
-            $pets = Pet::name($request->name)->where('idUsuario', '!=', Auth::user()->id)->get();//->paginate(1);
-            $where = [];
+            $pets = Pet::name($request->name)
+                    ->sex($request->chkSex, $request->sex)
+                    ->breed($request->chkBreed, $request->breed)
+                    ->localization($request->chkProvince, $request->province, $request->location)
+                    ->where('idUsuario', '!=', Auth::user()->id)->paginate(1);//->get()
 
-            // if($request->name != "")
-            // {
-            //     $pets = $pets->where('nombre', 'like', '%'.$request->name.'%')->get();
-            // }
-
-            $view = View::make('browser.searchList', compact('pets'));
-            $content = $view->render();
-            // $message = Message::find($id);
-            // $pet = $message->pet;
-            // if(!is_null($message->urlImagen))
-            // {
-            //     unlink('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall'.'/'.$message->urlImagen);
-            // }
-            // $message->delete();
-            return response()->json([
-                'message' => $content
-            ]);
+            // $view = View::make('browser.searchList', compact('pets'));
+            // $content = $view->render();
+            //
+            // return response()->json([
+            //     'partial' => $content
+            // ]);
+            return response()->json([View::make('browser.searchList', compact('pets'))->render()]);
         }
     }
 }
