@@ -75,8 +75,8 @@ $(document).on('click', '.pagination a', function(e){
     var page = $(this).attr('href').split('page=')[1];
     var form = $('#formBrowser');
     var url = form.attr('action');
-    // var data = form.serializeArray();
-    // data.push({name: 'page', value: page});
+    var data = form.serializeArray();
+    data.push({name: 'page', value: page});
     // alert(data);
 
 
@@ -85,7 +85,7 @@ $(document).on('click', '.pagination a', function(e){
         headers: {
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-        data: {page: page},
+        data: data,//{page: page},
         type: 'POST',
         dataType: 'json',
         success: function(data){

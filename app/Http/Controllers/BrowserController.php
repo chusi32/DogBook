@@ -43,11 +43,18 @@ class BrowserController extends Controller
     {
         if($request->ajax())
         {
-            $pets = Pet::name($request->name)
-                    ->sex($request->chkSex, $request->sex)
-                    ->breed($request->chkBreed, $request->breed)
-                    ->localization($request->chkProvince, $request->province, $request->location)
-                    ->where('idUsuario', '!=', Auth::user()->id)->paginate(1);//->get()
+                $pets = Pet::name($request->name)
+                        ->sex($request->chkSex, $request->sex)
+                        ->breed($request->chkBreed, $request->breed)
+                        ->localization($request->chkProvince, $request->province, $request->location)
+                        ->where('idUsuario', '!=', Auth::user()->id)->paginate(1);//->get()
+
+                return response()->json([View::make('browser.searchList', compact('pets'))->render()]);
+
+
+
+
+
 
             // $view = View::make('browser.searchList', compact('pets'));
             // $content = $view->render();
@@ -55,7 +62,7 @@ class BrowserController extends Controller
             // return response()->json([
             //     'partial' => $content
             // ]);
-            return response()->json([View::make('browser.searchList', compact('pets'))->render()]);
+
         }
     }
 }
