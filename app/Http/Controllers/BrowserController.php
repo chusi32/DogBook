@@ -47,7 +47,7 @@ class BrowserController extends Controller
                         ->sex($request->chkSex, $request->sex)
                         ->breed($request->chkBreed, $request->breed)
                         ->localization($request->chkProvince, $request->province, $request->location)
-                        ->where('idUsuario', '!=', Auth::user()->id)->paginate(1);//->get()
+                        ->where('idUsuario', '!=', Auth::user()->id)->paginate(5);//->get()
 
                 return response()->json([View::make('browser.searchList', compact('pets'))->render()]);
 

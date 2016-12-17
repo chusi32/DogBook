@@ -35,7 +35,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="form-group">
-                                {{ Form::text('name', null, array('id'=>'name', 'class' => 'form-control', 'placeholder'=>'Nombre de mascota')) }}
+                                <div class="input-group">
+                                    {{ Form::text('name', null, array('id'=>'name', 'class' => 'form-control', 'placeholder'=>'Nombre de mascota')) }}
+                                    <span class="input-group-addon" style="cursor:pointer;">X</span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

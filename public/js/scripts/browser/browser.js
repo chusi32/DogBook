@@ -51,6 +51,12 @@ $(document).ready(function(){
     $('#chkBreed').click(function(event) {
         $('#divBreed').toggle('fast');
     });
+
+    //Evento eliminar filtro nombre.
+    $('.input-group-addon').click(function(event) {
+        $('#name').val('');
+    });
+
 });
 
 //Enviar formulario al pulsar boton

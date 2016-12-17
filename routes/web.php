@@ -113,3 +113,8 @@ Route::post('/search', [
     'as' => 'search',
     'uses' => 'BrowserController@search'
 ]);
+
+/**
+*   Rutas de para las mascotas que se visitan
+*/
+Route::get('/visit/{id}', 'VisitController@homeVisit');
