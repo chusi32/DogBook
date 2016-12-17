@@ -20,7 +20,7 @@ $(document).ready(function(){
     });
 
     //Evento eliminar mensaje
-    $('#btnDeleteMessage').click(function(event){
+    $('.btnDeleteMessage').click(function(event){
         event.preventDefault();
 
         if (confirm('Esta acción no puede deshacerse. ¿Desea continuar?'))

@@ -19,11 +19,16 @@
                           {{-- <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe> --}}
                       </div>
                   @endif
-                  {{-- Si el usuario está en su muro se habilita el icono de borrar mensajes --}}
+                  {{-- Permite al usuario borrar sus mensajes aunque no sean de su muro --}}
                   @if(Auth::user()->id == $value['idUsuario'])
-                  <a href="#!">
-                      <span id="btnDeleteMessage" class="btnDeleteMessage glyphicon glyphicon-trash pull-right" aria-hidden="true" title='Eliminar mensaje'></span>
-                  </a>
+                      <a href="#!">
+                          <span class="btnDeleteMessage glyphicon glyphicon-trash pull-right" aria-hidden="true" title='Eliminar mensaje'></span>
+                      </a>
+                      {{-- Si el usuario está en su muro se habilita el icono de borrar mensajes --}}
+                  @elseif ($adminWall)
+                      <a href="#!"
+                        <span class="btnDeleteMessage glyphicon glyphicon-trash pull-right" aria-hidden="true" title='Eliminar mensaje'></span>
+                    </a>
                   @endif
                   <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
             </div>

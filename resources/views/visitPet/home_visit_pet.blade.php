@@ -39,5 +39,5 @@
 @endsection
 
 @section('js')
-    <script src="/js/scripts/home/home.js"></script>
+    <script src="/js/scripts/wall/wall.js"></script>
 @endsection

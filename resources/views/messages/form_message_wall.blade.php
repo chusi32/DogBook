@@ -6,9 +6,12 @@
     <br />
     {{-- Formulario para la creación de una nueva entrada --}}
     {{ Form::open(array('route' => 'newMessage', 'method' => 'POST', 'files' => true, 'id' => 'formNewMessage'), array('role' => 'form')) }}
-        {{ csrf_field() }}
-        {{ Form::hidden('idPet', $pet->id, array('id' => 'idPet')) }}
-        {{ Form::hidden('idWall', $pet->idMuro, array('id' => 'idWall')) }}
+        {{ Form::hidden('idPet', Session::get('pet'), array('id' => 'idPet')) }}
+        @if(empty($petVisit->idMuro))
+            {{ Form::hidden('idWall', $pet->idMuro, array('id' => 'idWall')) }}
+        @else
+            {{ Form::hidden('idWall', $petVisit->idMuro, array('id' => 'idWall')) }}
+        @endif
         {{-- Mensaje --}}
         <div class="form-group">
           {{ Form::label('message', 'Mensaje')}}

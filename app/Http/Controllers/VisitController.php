@@ -41,7 +41,12 @@ class VisitController extends Controller
 
                 $messages[$key] = $item;
             }
-            return view('visitPet.home_visit_pet', compact('pet', 'petVisit', 'messages'));
+            Session::put('visitPet', $id);
+            //Variable que determina si la mascota es la administradora del
+            //muro. Creada para que se puedan borrar del muro los mensajes
+            //que han dejado otras mascotas.
+            $adminWall = false;
+            return view('visitPet.home_visit_pet', compact('pet', 'petVisit', 'messages', 'adminWall'));
         }
         catch (ModelNotFoundException $e)
         {

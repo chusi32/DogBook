@@ -82,19 +82,24 @@ Route::post('/modifyUser', 'UserController@modifyUser');
 * Ruta para el home de la mascota.
 */
 Route::get('/wall/{id}', 'WallController@getWallPet');
-Route::post('/newMessage', [
-    'as' => 'newMessage',
-    'uses' => 'WallController@newWallMessage'
-]);
-Route::delete('/deleteMessageWall/{id}', [
-    'as' => 'deleteMessageWall',
-    'uses' => 'WallController@deleteMessageWall'
-]);
 
 Route::post('/saveImage', [
     'as' => 'saveImage',
     'uses' => 'GalleryController@saveImage'
 ]);
+
+/**
+*   Rutas para los mensajes
+*/
+Route::post('/newMessage', [
+    'as' => 'newMessage',
+    'uses' => 'MessageController@newWallMessage'
+]);
+Route::delete('/deleteMessageWall/{id}', [
+    'as' => 'deleteMessageWall',
+    'uses' => 'MessageController@deleteMessageWall'
+]);
+
 
 /**
 *   Ruta para la galeria de imágenes
