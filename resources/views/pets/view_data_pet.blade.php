@@ -8,35 +8,44 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+					{!! Html::image(asset('media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/profile.png'), 'imágen perfil',
+						array('height'=>'300', 'weight'=>'300')) !!}
+
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a target="_blank" href="http://scripteden.com/">Script Eden</a>
+                        <a target="_blank" href="http://scripteden.com/">{{$pet->nombre}}</a>
                     </div>
-                    <div class="desc">Passionate designer</div>
-                    <div class="desc">Curious developer</div>
-                    <div class="desc">Tech geek</div>
-                </div>
-                <div class="bottom">
-                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://plus.google.com/shahnuralam">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-                        <i class="fa fa-behance"></i>
-                    </a>
+					<div class="desc">
+						@if ($pet->sexo == "hombre")
+							{!! Html::image(asset('images/icons/male.png'), 'imágen sexo',
+								array()) !!}
+						@else
+							{!! Html::image(asset('images/icons/female.png'), 'imágen sexo',
+								array()) !!}
+						@endif
+					</div>
+					<div class="desc text-primary">Edad</div>
+                    <div class="desc ">{{$pet->edad}}</div>
+					<div class="desc text-primary">Provincia</div>
+                    <div class="desc">{{$pet->province->nombreProvincia}}</div>
+					<div class="desc text-primary">Localidad</div>
+					<div class="desc">{{$pet->location->nombreLocalidad}}</div>
+					<div class="desc text-primary">Raza</div>
+                    <div class="desc">{{$pet->breed->nombreRaza}}</div>
+					@if(isset($pet->pedigree->id))
+						<div class="desc">Tengo pedigree</div>
+						<div class="desc">Nombre del padre</div>
+						<div class="desc">{{$pet->pedigree->nombrePadre}}</div>
+						<div class="desc">Nombre de la madre</div>
+						<div class="desc">{{$pet->pedigree->nombreMadre}}</div>
+						<div class="desc">Detalles</div>
+						<div class="desc">{{$pet->pedigree->detalles}}</div>
+					@else
+						<div class="desc">No tengo pedigree</div>
+					@endif
                 </div>
             </div>
-
         </div>
-
 	</div>
 </div>

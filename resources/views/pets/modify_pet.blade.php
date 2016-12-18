@@ -40,7 +40,7 @@
                 </div>
                 @if ($errors->has('age'))
                     <span class="help-block">
-                        <strong class="alert-danger text-danger">{{ $errors->first('name') }}</strong>
+                        <strong class="alert-danger text-danger">{{ $errors->first('age') }}</strong>
                     </span>
                 @endif
                 <div class="form-group">
@@ -58,7 +58,7 @@
                 </div>
                 @if ($errors->has('province'))
                     <span class="help-block">
-                        <strong class="alert-danger text-danger">{{ $errors->first('name') }}</strong>
+                        <strong class="alert-danger text-danger">{{ $errors->first('province') }}</strong>
                     </span>
                 @endif
                 <div class="form-group">
@@ -67,7 +67,7 @@
                 </div>
                 @if ($errors->has('location'))
                     <span class="help-block">
-                        <strong class="alert-danger text-danger">{{ $errors->first('name') }}</strong>
+                        <strong class="alert-danger text-danger">{{ $errors->first('location') }}</strong>
                     </span>
                 @endif
                 <div class="form-group">
@@ -76,7 +76,7 @@
                 </div>
                 @if ($errors->has('breed'))
                     <span class="help-block">
-                        <strong class="alert-danger text-danger">{{ $errors->first('name') }}</strong>
+                        <strong class="alert-danger text-danger">{{ $errors->first('breed') }}</strong>
                     </span>
                 @endif
                 {{ Form::submit('Enviar')}}

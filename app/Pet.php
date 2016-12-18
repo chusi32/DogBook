@@ -18,17 +18,17 @@ class Pet extends Model
     */
     public function breed()
     {
-        return $this->hasOne('App\Breed', 'idRaza');
+        return $this->hasOne('App\Breed', 'id','idRaza');
     }
 
     public function location()
     {
-      return $this->hasOne('App\Location', 'idLocalidad');
+      return $this->hasOne('App\Location', 'id', 'idLocalidad');
     }
 
     public function province()
     {
-      return $this->hasOne('App\Province', 'idProvincia');
+      return $this->hasOne('App\Province', 'id', 'idProvincia');
     }
 
     public function pedigree()

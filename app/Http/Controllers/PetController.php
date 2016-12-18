@@ -313,8 +313,7 @@ class PetController extends Controller
         {
             try {
                 $pet = Pet::findOrFail($id);
-
-                return response()->json([View::make('pets.view_data_pet')->render()]);
+                return response()->json([View::make('pets.view_data_pet', compact('pet'))->render()]);
             } catch (ModelNotFoundException $e) {
 
             }

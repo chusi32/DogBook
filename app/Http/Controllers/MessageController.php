@@ -14,6 +14,7 @@ use App\Http\Controllers\redirect;
 use App\Http\Controllers\WallController;
 use App\Http\Controllers\VisitController;
 use Session;
+use View;
 
 class MessageController extends Controller
 {
@@ -115,6 +116,23 @@ class MessageController extends Controller
             return response()->json([
                 'message' => 'Mensaje eliminado con éxito'
             ]);
+        }
+    }
+
+    /**
+    *   Función que muestra el formulario de enviar mensaje privado a otra mascota
+    */
+    public function sendPrivateMessage(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            try {
+                $petReceived = Pet::findOrFail($id);
+                return response()->json([View::make('messages.form_private_message', compact('petReceived'))->render()]);
+            } catch (ModelNotFoundException $ex) {
+                return "Ocurrió un problema al preparar el mensaje";
+            }
+
         }
     }
 }
