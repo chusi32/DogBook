@@ -125,4 +125,8 @@ Route::post('/search', [
 Route::get('/visit/{id}', 'VisitController@homeVisit');
 Route::get('/visitGallery/{id}', 'GalleryController@visitIndex');
 Route::get('/viewDataPet/{id}', 'PetController@viewDataPet');
-Route::get('/sendPrivateMessage/{id}', 'MessageController@sendPrivateMessage');
+Route::get('/getFormPrivateMessage/{id}', 'MessageController@getFormPrivateMessage');
+Route::post('/sendPrivateMessage', [
+    'as' => 'sendPrivateMessage',
+    'uses' => 'MessageController@sendPrivateMessage'
+]);

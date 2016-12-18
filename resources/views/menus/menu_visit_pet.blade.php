@@ -18,7 +18,7 @@
           <li class="petMenu"><a href="{{'/viewDataPet'.'/'.$petVisit->id}}">Información<i class="glyphicon glyphicon-adjust"></i></a></li>
           <li><a href="{{url('/visit'.'/'.$petVisit->id)}}">Muro<i class="glyphicon glyphicon-bell"></i></a></li>
           <li class="petMenu"><a href="{{'/visitGallery'.'/'.$petVisit->id}}">Galeria<i class="glyphicon glyphicon-user"></i></a></li>
-          <li class="petMenu"><a href="{{'/sendPrivateMessage'.'/'.$petVisit->id}}">Enviar mensaje privado<i class="glyphicon glyphicon-user"></i></a></li>
+          <li class="petMenu"><a href="{{'/getFormPrivateMessage'.'/'.$petVisit->id}}">Enviar mensaje privado<i class="glyphicon glyphicon-user"></i></a></li>
       </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

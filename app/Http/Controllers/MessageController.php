@@ -122,7 +122,7 @@ class MessageController extends Controller
     /**
     *   Función que muestra el formulario de enviar mensaje privado a otra mascota
     */
-    public function sendPrivateMessage(Request $request, $id)
+    public function getFormPrivateMessage(Request $request, $id)
     {
         if($request->ajax())
         {
@@ -134,5 +134,108 @@ class MessageController extends Controller
             }
 
         }
+    }
+
+    //Función que inserta un nuevo mensaje privado
+    public function sendPrivateMessage(Request $request)
+    {
+        try {
+            $IdWallPetReceived = Pet::findOrFail($request->idPetReceived)->idMuro;
+
+            $IdMessage = Message::create([
+                'idMuro' => $IdWallPetReceived,
+                'idMascota' => Session::get('pet'),
+                'mensaje' => $request->message,
+                'urlVideo' => null,
+                'urlImagen' => null,
+                'privado' => true
+            ])->id;
+
+            if($IdMessage > 0)
+            {
+                //Regresar al home
+                return redirect()->back()->with('message', 'Mensaje enviado correctamente');
+                // $messages = [];
+                // try
+                // {
+                //     //Se recupera la mascota logueada
+                //     $pet = Pet::findOrFail(Session::get('pet'));
+                //     //Se recupera la información de la mascota que se visita
+                //     $petVisit = Pet::findOrFail($request->idPetReceived);
+                //     $wallMessages = $petVisit->wall->messages->where('privado', '=', 0);
+                //
+                //     foreach ($wallMessages as $key => $value)
+                //     {
+                //         $item = array();
+                //         $item['idMensaje'] = $value->id;
+                //         $item['idMuro'] = $value->idMuro;
+                //         $item['mensaje'] = $value->mensaje;
+                //         $item['fecha'] = $value->created_at;
+                //         $item['imagen'] = $value->urlImagen;
+                //         $item['video'] = $value->urlVideo;
+                //         $item['idMascota'] = $value->idMascota;
+                //         $item['nombreMascota'] = $value->pet->nombre;
+                //         $item['idUsuario'] = $value->pet->idUsuario;
+                //
+                //         $messages[$key] = $item;
+                //     }
+                //     Session::put('visitPet', $request->idPetReceived);
+                //     //Variable que determina si la mascota es la administradora del
+                //     //muro. Creada para que se puedan borrar del muro los mensajes
+                //     //que han dejado otras mascotas.
+                //     $adminWall = false;
+                //     $message = 'Mensaje enviado correctamente';
+                //     return view('visitPet.home_visit_pet', compact('pet', 'petVisit', 'messages', 'adminWall', 'message'));
+                // }
+                // catch (ModelNotFoundException $e)
+                // {
+                //     return "No se ha encontrado la mascota a la que intenta acceder";
+                // }
+                //Fin regresar home
+            }
+            else {
+                return "No se pudo guardar el mensaje. Inténtelo más tarde";
+            }
+        } catch (ModelNotFoundException $ex) {
+            return 'Hubo un problema al insertar. Inténtelo más tarde';
+        }
+
+
+
+        // if ($request->ajax())
+        // {
+        //     return response()->json([
+        //         'message' => $request
+        //     ]);
+        //     try {
+        //         $IdWallPetReceived = Pet::findOrFail($request->idPetReceived)->idMuro;
+        //
+        //         $IdMessage = Message::create([
+        //             'idMuro' => $IdWallPetReceived,
+        //             'idMascota' => Session::get('pet'),
+        //             'mensaje' => $request->message,
+        //             'urlVideo' => null,
+        //             'urlImagen' => null,
+        //             'privado' => true
+        //         ])->id;
+        //
+        //         if($IdMessage > 0)
+        //         {
+        //             dd($IdMessage);
+        //             return response()->json([
+        //                 "Mensaje enviado"
+        //             ]);
+        //         }
+        //         else {
+        //             return response()->json([
+        //                 "No se pudo guardar el mensaje. Inténtelo más tarde"
+        //             ]);
+        //         }
+        //     } catch (ModelNotFoundException $ex) {
+        //         return response()->json([
+        //             'message' => 'Hubo un problema al insertar. Inténtelo más tarde'
+        //         ]);
+        //     }
+        // }
     }
 }

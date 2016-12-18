@@ -8,7 +8,33 @@ $(document).ready(function(){
         $.get(url, function(result){
             $('#visitContent').empty().html(result);
         }).fail(function(){
-            alert('Ocurrio un problema al cargar la galeria de la mascota. Intentelo más tarde');
+            alert('Hubo un problema al acceder al contenido. Inténtelo más tarde');
         });
     });
 });
+
+//Enviar formulario de mensaje privado
+// $('#btnSendPrivateMessage').click(function(event){
+//     event.preventDefault();
+//     // var send = false;
+//     var form = $('$formPrivateMessage');
+//     var url = form.attr('action');
+//     var data = form.serializeArray();
+//     var visitPet = $('#petReceived').val();
+//
+//     $.post(url, data, function(result){
+//         //alert(result.message);
+//
+//     }).fail(function(){
+//         alert('Ocurrio un problema al enviar el mensaje. Inténtelo más tarde');
+//     });
+//
+//     if(send == "true")
+//     {
+//         $.get('/visit/' + visitPet, function(result){
+//             $('#visitContent').empty().html(result);
+//         }).fail(function(){
+//             alert('No se pudo recargar el muro de la mascota que está visitando');
+//         });
+//     }
+// });
