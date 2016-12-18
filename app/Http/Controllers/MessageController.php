@@ -71,21 +71,20 @@ class MessageController extends Controller
             //Se comprueba si la mascota escribe en su muro o no para redirigir a un sitio u otro
             try
             {
+
                 $petValidateWall = Pet::findOrFail($request->idPet);
-                if($petValidateWall->idMuro == $request->idMuro)
+                if($petValidateWall->idMuro == $request->idWall)
                 {
-                    return "Si";
                     $wall = new WallController();
                     return $wall->getWallPet(Session::get('pet'));
                 }
                 else
                 {
-                    return "NO";
                     $visitWall = new VisitController();
                     return $visitWall->homeVisit(Session::get('visitPet'));
                 }
             } catch (ModelNotFoundException $ex) {
-                return "Hubo un problema. Inténtelo mas tarde.";
+                return "Error. Inténtelo mas tarde.";
             }
 
 

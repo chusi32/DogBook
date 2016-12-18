@@ -27,8 +27,33 @@ class GalleryController extends Controller
     {
         $pet = Pet::find(Session::get('pet'));
         $gallery = $pet->gallery;
-        $images = $gallery->images;
+        $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
         return view('gallery.gallery', compact('pet', 'images'));
+        // $pet = Pet::find(Session::get('pet'));
+        // $gallery = $pet->gallery;
+        // $images = $gallery->images;
+        // return view('gallery.gallery', compact('pet', 'images'));
+    }
+
+    /**
+    *   Función que devuelve la galeria de la mascota a la que se visita
+    */
+    public function visitIndex(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            try {
+                $pet = Pet::findorFail($id);
+                $gallery = $pet->gallery;
+                $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
+
+                return response()->json([View::make('gallery.images', compact('images'))->render()]);
+
+            } catch (ModelNotFoundException $e) {
+                return "Ocurrio un problema en la galeria. Inténtelo más tarde";
+            }
+        }
+
     }
 
     /**

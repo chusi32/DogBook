@@ -7,6 +7,7 @@
 @section('css')
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles/home_pet/home_pet.css" rel="stylesheet">
+    <link href="/css/styles/visitPet/visitPet.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -39,5 +40,6 @@
 @endsection
 
 @section('js')
+    <script src="/js/scripts/visit/visit.js"></script>
     <script src="/js/scripts/wall/wall.js"></script>
 @endsection

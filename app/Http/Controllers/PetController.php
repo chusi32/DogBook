@@ -21,6 +21,7 @@ use App\Http\Requests\ModifiedPetRequest;
 use App\Http\Requests\ImageRequest;
 use App\Http\Requests\ModifyPedigreeRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use View;
 
 
 class PetController extends Controller
@@ -300,6 +301,24 @@ class PetController extends Controller
         {
             return "La mascota que intenta modificar no es suya.
                     Por favor, no sea cotilla";
+        }
+    }
+
+    /**
+    *   Devuelve la vista de la información de la mascota
+    */
+    public function viewDataPet(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            try {
+                $pet = Pet::findOrFail($id);
+
+                return response()->json([View::make('pets.view_data_pet')->render()]);
+            } catch (ModelNotFoundException $e) {
+
+            }
+
         }
     }
 

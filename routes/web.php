@@ -120,6 +120,8 @@ Route::post('/search', [
 ]);
 
 /**
-*   Rutas de para las mascotas que se visitan
+*   Rutas para las mascotas que se visitan
 */
 Route::get('/visit/{id}', 'VisitController@homeVisit');
+Route::get('/visitGallery/{id}', 'GalleryController@visitIndex');
+Route::get('/viewDataPet/{id}', 'PetController@viewDataPet');

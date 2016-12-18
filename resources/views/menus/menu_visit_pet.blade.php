@@ -14,10 +14,10 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li><a href="#!"><span><b>{{$petVisit->nombre}}</b></span></li></a>
-          <li><a href="#">Información<i class="glyphicon glyphicon-adjust"></i></a></li>
-          <li><a href="#">Muro<i class="glyphicon glyphicon-bell"></i></a></li>
-          <li><a href="#">Galeria<i class="glyphicon glyphicon-user"></i></a></li>
+          <li data-id=""><a href="#!"><span><b>{{$petVisit->nombre}}</b></span></li></a>
+          <li><a href="{{'/viewDataPet'.'/'.$petVisit->id}}">Información<i class="glyphicon glyphicon-adjust"></i></a></li>
+          <li><a href="{{url('/visit'.'/'.$petVisit->id)}}">Muro<i class="glyphicon glyphicon-bell"></i></a></li>
+          <li><a href="{{'/visitGallery'.'/'.$petVisit->id}}">Galeria<i class="glyphicon glyphicon-user"></i></a></li>
           <li><a href="#">Enviar mensaje privado<i class="glyphicon glyphicon-user"></i></a></li>
       </ul>
   </div><!-- /.navbar-collapse -->
