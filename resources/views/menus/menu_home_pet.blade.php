@@ -9,7 +9,7 @@
         <li>Muro</li>
         <a href="{{ url('/getGallery') }}"><li>Galeria</li></a>
         <a href="{{ url('/browser') }}"><li>Buscador</li></a>
-        <li>Mensajes</li>
+        <a href="{{ url('/getPrivateMessages') }}"<li>Mensajes</li></a>
         <li>Amigos</li>
         <li>Notificaciones</li>
     </ul>

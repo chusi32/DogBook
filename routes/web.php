@@ -91,6 +91,7 @@ Route::post('/saveImage', [
 /**
 *   Rutas para los mensajes
 */
+Route::get('/getPrivateMessages', 'MessageController@getPrivateMessages');
 Route::post('/newMessage', [
     'as' => 'newMessage',
     'uses' => 'MessageController@newWallMessage'
@@ -99,6 +100,11 @@ Route::delete('/deleteMessageWall/{id}', [
     'as' => 'deleteMessageWall',
     'uses' => 'MessageController@deleteMessageWall'
 ]);
+Route::post('/deleteAllPrivateMessages', [
+    'as' => 'deleteAllPrivateMessages',
+    'uses' => 'MessageController@deleteAllPrivateMessages'
+]);
+
 
 
 /**
@@ -129,4 +135,8 @@ Route::get('/getFormPrivateMessage/{id}', 'MessageController@getFormPrivateMessa
 Route::post('/sendPrivateMessage', [
     'as' => 'sendPrivateMessage',
     'uses' => 'MessageController@sendPrivateMessage'
+]);
+Route::post('/respondPrivateMessage', [
+    'as' => 'respondPrivateMessage',
+    'uses' => 'MessageController@respondPrivateMessage'
 ]);
