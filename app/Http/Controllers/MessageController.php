@@ -127,17 +127,27 @@ class MessageController extends Controller
         if($request->ajax())
         {
             try {
-                $petWall = Pet::findOrFail($request->idPet)->wall();
-                $messages = $petWall->privateMessages()->delete();
+                $pet = Pet::findOrFail($request->idPet);
+                $wallPet = $pet->wall->id;
+                $wall = $pet->wall;
+                $messages = $wall->privateMessages;
+                $filasAfectadas = Message::where('privado', '=', 1)->where('idMuro', '=', $wallPet)->delete();
+                //$messages = $petWall->privateMessages;
+                // $messages->delete();
+                //
+                // foreach ($messages as $key => $value) {
+                //
+                //     $value->delete();
+                // }
 
                 //$deletes = Message::where('idMuro' , '=', $petWall->id)->where('privado', '=', 1)->delete();
 
-                if($messages > 0)
-                {
+                // if($messages > 0)
+                // {
                     return response()->json([
-                        'message' => 'Se han borrado todos los mensajes'
+                        'message' => $request->idPet//'Se han borrado todos los mensajes'
                     ]);
-                }
+                // }
             } catch (ModelNotFoundException $ex) {
                 return "Ocurrió un problema al borrar los mensajes. Inténteló mas tarde";
             }

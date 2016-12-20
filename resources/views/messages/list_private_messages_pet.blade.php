@@ -42,6 +42,6 @@
     {{ Form::close()}}
     {{-- Formulario para eliminar todos los mensajes --}}
     {{ Form::open(['route' => 'deleteAllPrivateMessages', 'method' => 'post', 'id' => 'formDeleteAllMessages'])  }}
-        {{ Form::hidden('idPet', $value->pet->id)}}
+        {{ Form::hidden('idPet', $pet->id)}}
     {{ Form::close()}}
 </div>
