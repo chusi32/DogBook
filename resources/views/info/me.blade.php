@@ -3,8 +3,9 @@
     DogBook - Desarrollador
 @endsection
 @section('css')
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/styles/info/me.css" rel="stylesheet">
+    {{-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> --}}
+    {{-- <link href="css/styles/info/me.css" rel="stylesheet"> --}}
+    <link href="css/styles/info/styleInfo.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="container-fluid">

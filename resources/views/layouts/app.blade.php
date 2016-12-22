@@ -12,7 +12,10 @@
     @yield('title')
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Roboto" rel="stylesheet"> 
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    {!!Html::style('css/styles/application.css')!!}
     @yield('css')
 
     <!-- Scripts Head -->

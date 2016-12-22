@@ -3,10 +3,10 @@
     DogBook - Privacidad
 @endsection
 @section('content')
-    <div class="jumbotron">
-    <div class="container-fluid">
+    {{-- <div class="jumbotron"> --}}
+    <div class="container">
 
-        <h2 class="text-center">Acuerdos legales</h2>
+        <h1 class="text-center">Acuerdos legales</h1>
         <hr/>
         <div class="panel-group">
             <div class="panel panel-default">
@@ -108,5 +108,5 @@
             </div>
         </div>
     </div>
-</div>
+{{-- </div> --}}
 @endsection

@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
     <div class="panel-heading clickable">
         <h3 class="panel-title">Mascotas</h3>
             <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
@@ -12,14 +12,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <a class="pull-left" href="{{url('/wall'.'/'.$value['id'])}}">
                                     {!! Html::image(asset('media/'.$value['idUsuario'].'/pets'.'/'.$value['id'].'/profile.png'), 'imágen perfil',
-                                        array('class' => 'img-responsive media-object dp img-circle', 'style' => '100px;height:100px;')) !!}
+                                        array('class' => 'img-responsive media-object dp', 'style' => '100px;height:100px;')) !!}
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <h3 class="text-center">{{ $value['nombre'] }}</h3>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown">
+                                <button class="btn btn-custom dropdown-toggle pull-right" type="button" data-toggle="dropdown">
                                     <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -41,7 +41,7 @@
             <p> Todavía no tiene ninguna mascota </p>
         @endif
         <a href="{{ url('/newPet')}}">
-            <button class="btn btn-primary pull-right">Nueva mascota</button>
+            <button class="btn btn-custom pull-right">Nueva mascota</button>
         </a>
     </div>
 

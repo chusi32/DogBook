@@ -3,15 +3,16 @@
     DogBook-Descripción
 @endsection
 @section('css')
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="css/styles/info/description.css" rel="stylesheet">
+    {{-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
+    {{-- <link href="css/styles/info/description.css" rel="stylesheet"> --}}
+    <link href="css/styles/info/styleInfo.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h2 class="text-center">DogBook</h2>
+                <h1 class="text-center">-- DogBook --</h1>
             </div>
         </div>
       <div class="iconcontainer">
@@ -57,7 +58,7 @@
           </div>
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h2 class="text-center">¿Qué ofrecemos?</h2>
+                  <h1 class="text-center">¿Qué ofrecemos?</h1>
               </div>
           </div>
         <div class="row">

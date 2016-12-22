@@ -1,0 +1,192 @@
+/*Estilos para el body*/
+body {
+    background-color: #E6E8E6 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/*Navbar*/
+nav, .navbar {
+    background-color: #26408B !important;
+    color: white !important;
+}
+
+ul.nav a {
+    color: white !important;
+}
+ul.nav a: hover {
+    color: #2B59C3 !important;
+}
+
+/*Estilos para el footer*/
+footer {
+    color: #26408B !important;
+}
+/*footer div a {
+    color: #26408B !important;
+}*/
+
+/*Estilos para los enlaces*/
+a {
+    color: #26408B !important;
+}
+
+/*Paneles*/
+div.panel-default {
+    border-style: solid !important;
+    /*border-color: #D1495B;*/
+    border-width: 2px !important;
+    margin-bottom: 20px !important;
+    border-radius: 0px;
+}
+
+div.panel-heading {
+    background-color: #2B59C3 !important;
+    color: white !important;
+    border-radius: 0px;
+}
+/*PANEL PERSONALIZADO*/
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .glyphicon
+{
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }
+h3.panel-title {
+    font-family: 'Roboto', sans-serif !important;
+    color: white !important;
+}
+
+
+
+/*BOTONES*/
+.btn-custom {
+    background-color: #2B59C3 !important;
+    color: white !important;
+    border-radius: 0px !important;
+}
+
+.btn-custom:hover {
+    background-color: #26408B !important;
+    color: white !important;
+}
+
+i.glyphicon-plus, i.glyphicon-minus {
+    background-color: #2B59C3 !important;
+    border-radius: 0px;
+}
+i.glyphicon-plus:hover, i.glyphicon-minus:hover {
+    background-color: white !important;
+    color: #2B59C3 !important;
+    border-radius: 0px;
+}
+
+/*Menus*/
+.dropdown-menu {
+    background-color: #26408B !important;
+}
+
+a.dropdown-toggle {
+    background-color: #26408B !important;
+}
+ul.dropdown-menu {
+    border-radius: 0px;
+}
+ul.dropdown-menu li a:hover {
+    background-color: white;
+    color: #2B59C3 !important;
+}
+ul.dropdown-menu li a {
+    color: white !important;
+}
+
+/*Inputs*/
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=textarea] {
+    border-radius: 0px;
+}
+
+/*TEXTOS*/
+h1 {
+    font-family: 'Raleway', sans-serif !important;
+    color: #26408B !important;
+}
+h3 {
+    font-family: 'Raleway', sans-serif !important;
+    color: #26408B !important;
+}
+label.label-custom {
+    color: #26408B !important;
+}
+
+/*HR*/
+hr {
+    background-color: #26408B !important;
+    height: 2px !important;
+
+}
+
+/*--------------ELEMENTOS CUSTOMIZADOS------------------------*/
+/*LISTAS*/
+/*Para la lista de las mascotas*/
+.media
+ {
+     /*box-shadow:0px 0px 4px -2px #000;*/
+     margin: 20px 0px;
+     padding:30px;
+ }
+ .dp
+ {
+     border:5px solid #26408B !important;
+     transition: all 0.2s ease-in-out;
+     width: 100px;
+     height: 50px;
+ }
+ .dp:hover
+ {
+     border:2px solid #26408B !important;
+     transform:rotate(360deg);
+     -ms-transform:rotate(360deg);
+     -webkit-transform:rotate(360deg);
+     /*-webkit-font-smoothing:antialiased;*/
+ }
+
+ /*INPUT FILE*/
+ .image-preview-input {
+     position: relative;
+ 	overflow: hidden;
+ 	margin: 0px;
+     color: #333;
+     background-color: #fff;
+     border-color: #ccc;
+ }
+ .image-preview-input input[type=file] {
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+ 	margin: 0;
+ 	padding: 0;
+ 	font-size: 20px;
+ 	cursor: pointer;
+ 	opacity: 0;
+ 	filter: alpha(opacity=0);
+ }
+ .image-preview-input-title {
+     margin-left:2px;
+ }

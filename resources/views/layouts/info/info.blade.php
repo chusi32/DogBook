@@ -11,8 +11,10 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <link href="/css/app.css" rel="stylesheet">
-        {!!Html::style('css/styles/info/wel.css')!!}
+        {{-- <link href="/css/app.css" rel="stylesheet"> --}}
+        {!!Html::style('bootstrap/css/bootstrap.min.css')!!}
+        {!!Html::style('css/styles/info/styleInfo.css')!!}
+        {{-- {!!Html::style('css/styles/info/wel.css')!!} --}}
         @yield('css')
         {{-- {!!Html::style('css/styles/welcome.css')!!} --}}
         <style>
