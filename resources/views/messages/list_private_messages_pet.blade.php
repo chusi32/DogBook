@@ -1,3 +1,18 @@
+@if(!count($messages) > 0)
+    <div class="row">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <p>
+                <b>Su bandeja de entrada está vacia</b>
+            </p>
+        </div>
+    </div>
+@else
+    <div class="row">
+        <p class="pull-left">
+            <b>{{$messages->total()}}</b> Mensajes
+        </p>
+    </div>
+@endif
 {{-- Desplegable con las opciones: Eliminar mensajes.... --}}
 <div class="btn-group">
   <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" title="Opciones">

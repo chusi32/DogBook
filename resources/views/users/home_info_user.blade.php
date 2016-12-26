@@ -29,7 +29,16 @@
         <a href="{{ url('/modifyUser')}}">
             {{ Form::button('Modificar', array('class' => 'btn btn-custom pull-right')) }}
         </a>
-        {{ Form::button('Cuenta', array('class' => 'btn btn-custom')) }}
+        {{-- Desplegable con las opciones: Eliminar mensajes.... --}}
+        <div class="btn-group">
+          <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" title="Opciones">
+              <span class="glyphicon glyphicon-cog"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{url('/deleteAccount')}}">Eliminar cuenta</a></li>
+          </ul>
+        </div>
+        {{-- {{ Form::button('Cuenta', array('class' => 'btn btn-custom')) }} --}}
         </form>
     </div>
 

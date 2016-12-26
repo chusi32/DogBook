@@ -7,6 +7,7 @@ use App\User;
 use App\Image;
 use App\Pet;
 use App\Gallery;
+use App\Company;
 use Auth;
 use Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -25,10 +26,12 @@ class GalleryController extends Controller
     */
     public function index()
     {
+        $companies = Company::all();
         $pet = Pet::find(Session::get('pet'));
         $gallery = $pet->gallery;
         $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
-        return view('gallery.gallery', compact('pet', 'images'));
+        $adminGallery = true;
+        return view('gallery.gallery', compact('pet', 'images', 'companies', 'adminGallery'));
         // $pet = Pet::find(Session::get('pet'));
         // $gallery = $pet->gallery;
         // $images = $gallery->images;
@@ -45,9 +48,10 @@ class GalleryController extends Controller
             try {
                 $pet = Pet::findorFail($id);
                 $gallery = $pet->gallery;
+                $adminGallery = false;
                 $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
 
-                return response()->json([View::make('gallery.images', compact('images'))->render()]);
+                return response()->json([View::make('gallery.images', compact('images', 'adminGallery'))->render()]);
 
             } catch (ModelNotFoundException $e) {
                 return "Ocurrio un problema en la galeria. Inténtelo más tarde";

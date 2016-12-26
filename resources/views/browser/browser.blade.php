@@ -5,8 +5,8 @@
 @endsection
 
 @section('css')
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles/browser/browser.css" rel="stylesheet">
+    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/css/styles/browser/browser.css" rel="stylesheet"> --}}
 @endsection
 
 @section('headJs')
@@ -15,20 +15,19 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
-            <h2 class="text-center">Buscador</h2>
-            @if(session('message'))
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    {{session('message')}}
-                </div>
-            @endif
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-            {{-- TODO: Para la publicidad --}}
+            @include('company.list_companies')
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="row">
+                <h1 class="text-center">-- Buscador --</h1>
+                @if(session('message'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        {{session('message')}}
+                    </div>
+                @endif
+            </div>
+            {{-- Formulario buscador --}}
             {{ Form::open(array('route' => 'search', 'method' => 'POST', 'id' => 'formBrowser'), array('role' => 'form')) }}
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 <div class="container-fluid">
@@ -84,7 +83,7 @@
                     </div>
                 </div>
             {{ Form::close() }}
-
+            {{-- Fin formulario buscador --}}
             <div id="searchResult">
             </div>
 

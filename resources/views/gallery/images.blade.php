@@ -5,10 +5,12 @@
             <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3 divImage' data-id="{{$value['id']}}">
                 <a class="thumbnail fancybox" rel="ligthbox" href="{{$value->ruta}}{{$value->imagen}}">
                     {!! Html::image(asset($value['ruta'].''.$value['imagen']), 'imágen galeria',
-                        array('height'=>50, 'weight'=>50)) !!}
+                        array('min-height'=>50, 'min-weight'=>50)) !!}
                     <img class="img-responsive" alt="" src="asset({{$value['ruta']}}{{$value['imagen']}})" />
                     <div class='text-right'>
-                        <small class='text-muted deleteImage'>Eliminar</small>
+                        @if($adminGallery == true)
+                            <small class='text-muted deleteImage'>Eliminar</small>
+                        @endif
                         {{-- <a href="#!">
                             <span id="btnDeleteMessage" class="btnDeleteMessage glyphicon glyphicon-trash pull-right" aria-hidden="true" title='Eliminar mensaje'></span>
                         </a> --}}

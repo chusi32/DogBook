@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pet;
 use App\Message;
+use App\Company;
 use Auth;
 use Validator;
 use Illuminate\Routing\Redirector;
@@ -256,8 +257,9 @@ class MessageController extends Controller
     {
         try {
             $pet = Pet::findOrFail(Session::get('pet'));
+            $companies = Company::all();
             $messages = $pet->wall->privateMessages()->paginate(5);
-            return view('messages.private_message_pet', compact('pet', 'messages'));
+            return view('messages.private_message_pet', compact('pet', 'messages', 'companies'));
         } catch (ModelNotFoundException $ex) {
             return "No se pudo abrir la bandeja de entrada. Inténtelo más tarde";
         }

@@ -23,8 +23,8 @@
                 </ul>
                 @if (Route::has('login'))
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">Entrar</a></li>
+                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
                     </ul>
                 @endif
             </div><!-- /.navbar-collapse -->

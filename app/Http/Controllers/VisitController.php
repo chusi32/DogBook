@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pet;
+use App\Company;
 use Session;
 
 
@@ -22,6 +23,7 @@ class VisitController extends Controller
         {
             //Se recupera la mascota logueada
             $pet = Pet::findOrFail(Session::get('pet'));
+            $companies = Company::all();
             //Se recupera la información de la mascota que se visita
             $petVisit = Pet::findOrFail($id);
             $wallMessages = $petVisit->wall->messages->where('privado', '=', 0);
@@ -46,7 +48,7 @@ class VisitController extends Controller
             //muro. Creada para que se puedan borrar del muro los mensajes
             //que han dejado otras mascotas.
             $adminWall = false;
-            return view('visitPet.home_visit_pet', compact('pet', 'petVisit', 'messages', 'adminWall'));
+            return view('visitPet.home_visit_pet', compact('pet', 'petVisit', 'messages', 'adminWall', 'companies'));
         }
         catch (ModelNotFoundException $e)
         {

@@ -138,7 +138,7 @@ h1 {
     color: #26408B !important;
     margin-bottom: 20px;
 }
-h3, h3.name{
+h3, h3.name, h4, b.data{
     font-family: 'Raleway', sans-serif !important;
     color: #26408B !important;
 }
@@ -177,7 +177,7 @@ div.jumbotron {
 /*LISTAS*/
 /*Para la lista de las mascotas*/
 .data-pet {
-    border-bottom: 3px solid #26408B; margin-bottom:10px;    
+    border-bottom: 3px solid #26408B; margin-bottom:10px;
     padding-bottom: 10px !important;
 }
 .media
@@ -409,4 +409,4 @@ div.jumbotron {
 			width: 40px;
 			padding: 10px 0px 9px;
 		}*/
-	}
+	/*}*/

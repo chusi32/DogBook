@@ -5,9 +5,9 @@
 @endsection
 
 @section('css')
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles/home_pet/home_pet.css" rel="stylesheet">
-    <link href="/css/styles/visitPet/visitPet.css" rel="stylesheet">
+    <link href="/css/styles/visitPet/visitPet.css" rel="stylesheet"> --}}
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
     </div>
     <div class="row">
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-            {{-- TODO: Para la publicidad --}}
+            @include('company.list_companies')
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
             @include('menus.menu_visit_pet')

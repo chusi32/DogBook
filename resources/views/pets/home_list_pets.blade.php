@@ -19,6 +19,7 @@
                                 <h3 class="name text-center">{{ $value['nombre'] }}</h3>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                {{ HTML::link('/wall'.'/'.$value['id'], 'Entrar', array('class' => 'btn btn-custom pull-right'))}}
                                 <button class="btn btn-custom dropdown-toggle pull-right" type="button" data-toggle="dropdown">
                                     <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
                                 </button>

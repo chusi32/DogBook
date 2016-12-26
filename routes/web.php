@@ -80,6 +80,8 @@ Route::get('getLocationPet/{id}', 'PetController@getLocationPet');
  */
 Route::get('/modifyUser', 'UserController@getForm');
 Route::post('/modifyUser', 'UserController@modifyUser');
+Route::get('/deleteAccount', 'UserController@deleteAccount');
+Route::get('/deleteUser', 'UserController@deleteUser');
 
 /**
 * Ruta para el home de la mascota.

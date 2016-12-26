@@ -25,12 +25,12 @@
               <span class="input-group-btn">
                   <!-- image-preview-clear button -->
                   <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                      <span class="glyphicon glyphicon-remove"></span> Clear
+                      <span class="glyphicon glyphicon-remove"></span> Eliminar
                   </button>
                   <!-- image-preview-input -->
                   <div class="btn btn-default image-preview-input">
                       <span class="glyphicon glyphicon-folder-open"></span>
-                      <span class="image-preview-input-title">Browse</span>
+                      <span class="image-preview-input-title">Buscar</span>
                       <input type="file" accept="image/png, image/jpeg, image/gif" id="image" name="image"/> <!-- rename it -->
                   </div>
               </span>

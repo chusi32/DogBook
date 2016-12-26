@@ -76,7 +76,7 @@ $(function() {
         $('.image-preview-filename').val("");
         $('.image-preview-clear').hide();
         $('.image-preview-input input:file').val("");
-        $(".image-preview-input-title").text("Browse");
+        $(".image-preview-input-title").text("Buscar");
     });
     // Create the preview image
     $(".image-preview-input input:file").change(function (){

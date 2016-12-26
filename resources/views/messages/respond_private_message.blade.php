@@ -31,7 +31,7 @@
             {{ Form::open(array('route' => 'respondPrivateMessage', 'method' => 'POST', 'files' => true, 'id' => 'formPrivateMessage'), array('role' => 'form')) }}
                 {{ Form::hidden('idPetReceived', $petReceived->id, array('id' => 'idPetReceived')) }}
                 {{ Form::textarea('message', null, ['id' => 'message','class' => 'form-control', 'placeholder'=>'Escriba el mensaje', 'rows'=>'7', 'required', 'maxlength'=>'500']) }}
-                {{ Form::submit('Enviar', array('id'=>'btnSendPrivateMessage', 'class'=>'btn btn-primary'))}}
+                {{ Form::submit('Enviar', array('id'=>'btnSendPrivateMessage', 'class'=>'btn btn-custom pull-right'))}}
             {{ Form::close()}}
         </div>
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2 sidebar1">

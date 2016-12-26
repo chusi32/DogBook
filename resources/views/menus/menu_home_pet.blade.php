@@ -6,11 +6,12 @@
 <div class="left-navigation">
     <ul class="list">
         <h3><strong>{{$pet->nombre}}</strong></h3>
-        <li><a href="{{ url('') }}">Muro</a></li>
+        <li><a href="{{ url('/wall'.'/'.$pet->id) }}">Muro</a></li>
         <li><a href="{{ url('/getGallery') }}">Galeria</a></li>
         <li><a href="{{ url('/browser') }}">Buscador</a></li>
         <li><a href="{{ url('/getPrivateMessages') }}">Mensajes</a></li>
         <li><a href="">Favoritos</a></li>
+        <li><a href="{{ url('/home') }}">Cambiar mascota</a></li>
     </ul>
 </div>
 
