@@ -5,8 +5,8 @@
 @endsection
 
 @section('css')
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles/wall/wall.css" rel="stylesheet">
+    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/css/styles/wall/wall.css" rel="stylesheet"> --}}
 @endsection
 
 @section('content')

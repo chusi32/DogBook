@@ -42,10 +42,10 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <button type="button" class="btn btn-info" title="Buscar" id="btnSearch">
+                            <button type="button" class="btn btn-custom" title="Buscar" id="btnSearch">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
-                            <button type="button" class="btn btn-info" title="Desplegar filtros" id="btnFilter">
+                            <button type="button" class="btn btn-custom" title="Desplegar filtros" id="btnFilter">
                                 <span class="glyphicon glyphicon glyphicon-filter"></span>
                             </button>
 
@@ -58,7 +58,7 @@
                                 {{ Form::checkbox('chkSex', null, null, ['id' => 'chkSex', 'class' => 'field']) }}
                             </div>
                             <div class="form-group" id="divSex">
-                                {{ Form::select('sex', ['macho' => 'Macho', 'hembra' => 'Hembra'], null, ['class' => 'form-control']) }}
+                                {{ Form::select('sex', ['macho' => 'Macho', 'hembra' => 'Hembra'], null, ['class' => 'form-control', 'id' => 'sex']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('Provincia y Localidad')}}

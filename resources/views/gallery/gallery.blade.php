@@ -5,8 +5,8 @@
 @endsection
 
 @section('css')
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles/gallery/gallery.css" rel="stylesheet">
+    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/css/styles/gallery/gallery.css" rel="stylesheet"> --}}
 @endsection
 
 @section('headJs')
@@ -51,7 +51,7 @@
                         <strong class="alert-danger text-danger">{{ $errors->first('image') }}</strong>
                     </span>
                 @endif
-                {{ Form::submit('Subir', array('class' => 'btn btn-primary')) }}
+                {{ Form::submit('Subir', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
         </div>
     </div>

@@ -1,6 +1,6 @@
 {{-- Desplegable con las opciones: Eliminar mensajes.... --}}
 <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Opciones">
+  <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown" title="Opciones">
       <span class="glyphicon glyphicon-cog"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
@@ -8,14 +8,14 @@
   </ul>
 </div>
 {{-- Boton para refrescar la lista de mensajes --}}
-<a href="{{ url('/getPrivateMessages') }}" class="btn btn-default" title="Refrescar">
+<a href="{{ url('/getPrivateMessages') }}" class="btn btn-custom" title="Refrescar">
     <span class="glyphicon glyphicon-refresh"></span>
 </a>
 
 <div class="comments-list">
     @foreach ($messages as $key => $value)
         <div class="media" data-id="{{$value->id}}">
-            <p class="pull-right"><small>{{$value->created_at}}</small></p>
+            {{-- <p class="pull-right"><small>{{$value->created_at}}</small></p> --}}
             <a class="media-left" href="#">
                 {!! Html::image(asset('media/'.$value->pet->idUsuario.'/pets'.'/'.$value->idMascota.'/profile.png'), 'imágen perfil',
                     array('height'=>50, 'weight'=>50)) !!}

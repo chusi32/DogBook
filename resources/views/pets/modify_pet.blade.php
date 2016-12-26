@@ -5,16 +5,16 @@
 @endsection
 
 @section('css')
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="/css/styles/pets/newPet.css" rel="stylesheet">
+    {{-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
+    {{-- <link href="/css/styles/pets/newPet.css" rel="stylesheet"> --}}
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
-            <h2 class="text-center">Modificar mascota {{ $pet -> nombre }}</h2>
+        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
+            <h1 class="pull-left">Modificar mascota {{ $pet -> nombre }}</h1>
         </div>
     </div>
     <div class="row">
@@ -79,7 +79,7 @@
                         <strong class="alert-danger text-danger">{{ $errors->first('breed') }}</strong>
                     </span>
                 @endif
-                {{ Form::submit('Enviar')}}
+                {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
         </div>
     </div>
