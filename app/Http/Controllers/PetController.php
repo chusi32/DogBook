@@ -13,6 +13,8 @@ use App\Pedigree;
 use App\Wall;
 use App\Message;
 use App\Gallery;
+use App\Image;
+use App\Company;
 use File;
 use Input;
 use Validator;
@@ -168,7 +170,8 @@ class PetController extends Controller
         if($pet -> idUsuario == Auth::user() -> id) {
             $provinces = Province::pluck('nombreProvincia', 'id');
             $breeds = Breed::pluck('nombreRaza', 'id');
-            return view('pets.modify_pet', compact('pet','provinces', 'breeds'));
+            $companies = Company::all();
+            return view('pets.modify_pet', compact('pet','provinces', 'breeds', 'companies'));
         }
         else {
             return "La mascota a la que intenta acceder no le pertenece. No seas cotilla";
@@ -176,9 +179,39 @@ class PetController extends Controller
 
     }
 
-    public function deletePet($id)
+    public function deletePet($id, Request $request)
     {
-        // TODO:: Falta hacer la funcionalidad.
+        if($request->ajax())
+        {
+            try {
+                //Se obtine la información de la mascota
+                $pet = Pet::findOrFail($id);
+                //Se borran las fotos de la mascota y la galeria
+                $gallery = $pet->gallery;
+                Image::where('idGaleria', '=', $gallery->id)->delete();
+                $gallery->delete();
+                //Se borran los mensajes y el muro de la mascota
+                $wall = $pet->wall;
+                Message::where('idMuro', '=', $wall->id)->delete();
+                Message::where('idMascota', '=', $pet->id)->delete();
+                $wall->delete();
+                //Eliminar pedigree
+                if($pet->idPedigree != null)
+                {
+                    Pedigree::where('id', '=', $pet->idPedigree)->delete();
+                }
+                //Borrar carpeta
+                $this->eliminarDir('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id);
+                $pet->delete();
+
+                return response()->json([
+                    'message' => 'Mascota eliminada con éxito'
+                ]);
+
+            } catch (ModelNotFoundException $ex) {
+                return "Ocurrió un problema al eliminar";
+            }
+        }
     }
 
     /*
@@ -204,11 +237,12 @@ class PetController extends Controller
     {
         try {
             $pet = Pet::findOrFail($id);
+            $companies = Company::all();
         } catch (ModelNotFoundException $e) {
             return "No existe esta mascota";
         }
 
-        return view('pets.modify_profile_pet', compact('pet'));
+        return view('pets.modify_profile_pet', compact('pet', 'companies'));
     }
 
     /*
@@ -240,10 +274,8 @@ class PetController extends Controller
     {
         if($this->validPet(Auth::user()->id, $id)) {
             $pet = Pet::find($id);
-            // if($pet->idPedigree == NULL){
-            //     $pet->idPedigree = 0001;
-            // }
-            return view('pets.modify_pedigree_pet', compact('pet'));
+            $companies = Company::all();
+            return view('pets.modify_pedigree_pet', compact('pet', 'companies'));
         }
         else {
             return "Esta mascota no te pertenece. No seas cotilla.";
@@ -350,4 +382,22 @@ class PetController extends Controller
             $request->file('image')->move('../public/media/'.$path.'/'.$request->id, 'profile.png');
         }
     }
+
+    /*-----------METODOS PRIVADOS----------------------*/
+
+    /*Borrar directorio recursivamente*/
+    private function eliminarDir($carpeta)
+    {
+        foreach(glob($carpeta . '/*') as $archivos_carpeta)
+        {
+            //si es un directorio volvemos a llamar recursivamente
+            if (is_dir($archivos_carpeta))
+                $this->eliminarDir($archivos_carpeta);
+            else//si es un archivo lo eliminamos
+            unlink($archivos_carpeta);
+        }
+        rmdir($carpeta);
+    }
+
+
 }

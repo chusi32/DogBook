@@ -14,20 +14,18 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
-            <h1 class="pull-left">-- Modificar pedigree de {{ $pet->nombre }} --</h1>
-            @if (!isset($pet->pedigree))
-                <h3 class="text text-center text-info">
-                    Esta mascota actualmente no tiene pedigree.
-                </h3>
-            @endif
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-            {{-- TODO: Para la publicidad --}}
+            @include('company.list_companies')
         </div>
         <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="row">
+                <h1 class="text-center">-- Modificar pedigree de {{ $pet->nombre }} --</h1>
+                @if (!isset($pet->pedigree))
+                    <h3 class="text text-center text-info">
+                        Esta mascota actualmente no tiene pedigree.
+                    </h3>
+                @endif
+            </div>
             {{ Form::open(array('route'=>'modifyPedigreePet', 'method' => 'POST'), array('role' => 'form')) }}
                 {{ csrf_field() }}
                 {{ Form::hidden('id', $pet->id)}}
@@ -70,6 +68,7 @@
                         <strong class="alert-danger text-danger">{{ $errors->first('description') }}</strong>
                     </span>
                 @endif
+                <a href="{{ URL::previous() }}" class="btn btn-danger pull-right">Cancelar</a>
                 {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
         </div>

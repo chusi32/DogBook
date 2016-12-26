@@ -13,15 +13,15 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
-            <h1 class="pull-left">Modificar mascota {{ $pet -> nombre }}</h1>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-            {{-- TODO: Para la publicidad --}}
+            @include('company.list_companies')
         </div>
         <div class="col-sx-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="row">
+                <div>
+                    <h1 class="text-center">Modificar mascota {{ $pet -> nombre }}</h1>
+                </div>
+            </div>
             {{ Form::open(array('route' => 'updatePet', 'method' => 'POST', 'files' => true), array('role' => 'form')) }}
                 {{ csrf_field() }}
                 {{ Form::hidden('id', $pet -> id, array('id' => 'id')) }}
@@ -79,6 +79,7 @@
                         <strong class="alert-danger text-danger">{{ $errors->first('breed') }}</strong>
                     </span>
                 @endif
+                <a href="{{ URL::previous() }}" class="btn btn-danger pull-right">Cancelar</a>
                 {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
         </div>

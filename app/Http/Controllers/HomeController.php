@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Company;
 
 class HomeController extends Controller
 {
@@ -26,11 +27,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        // $id = Auth::id();
         $user = Auth::user();
-        //$user = Auth::user();
         $mas = Auth::user()->pets;
-        //$mascotas = $mas->nombre;
-        return view('home.home',['user' => $user, 'pets' => $mas]);
+        $companies = Company::all();
+        return view('home.home',['user' => $user, 'pets' => $mas, 'companies' => $companies]);
     }
 }

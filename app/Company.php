@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    protected $table = 'empresa';
+    protected $table = 'empresas';
     protected $fillable = [
         'nombre', 'textoCorto', 'descripcion', 'idProvincia', 'idLocalidad',
         'direccion', 'telefono', 'web', 'idTipoEmpresa', 'rutaImagen'

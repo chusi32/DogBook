@@ -7,7 +7,7 @@
         @if(count($pets) > 0)
             <div class="container-fluid">
                 @foreach ($pets as $key => $value)
-                    <div class="row">
+                    <div class="row data-pet" data-id="{{$value['id']}}">
                         <div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <a class="pull-left" href="{{url('/wall'.'/'.$value['id'])}}">
@@ -16,7 +16,7 @@
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                <h3 class="text-center">{{ $value['nombre'] }}</h3>
+                                <h3 class="name text-center">{{ $value['nombre'] }}</h3>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <button class="btn btn-custom dropdown-toggle pull-right" type="button" data-toggle="dropdown">
@@ -26,14 +26,11 @@
                                     <li><a href="{{ url('/modifyProfile'.'/'.$value['id']) }}">Cambiar imagen de perfil</a></li>
                                     <li><a href="{{ url('/modifyPet'.'/'.$value['id']) }}">Modificar datos</a></li>
                                     <li><a href="{{ url('/modifyPedigreePetForm'.'/'.$value['id']) }}">Modificar Pedigree</a></li>
-                                    <li><a href="{{ url('/deletePet'.'/'.$value['id']) }}">Eliminar</a></li>
+                                    <li><a href="#!" class="btnDeletePet">Eliminar</a></li>
                                 </ul>
                             </div>
-
-
                         </div>
                     </div>
-                    <hr />
                 @endforeach
             </div>
 
@@ -43,6 +40,9 @@
         <a href="{{ url('/newPet')}}">
             <button class="btn btn-custom pull-right">Nueva mascota</button>
         </a>
+        {{-- Formulario para eliminar un mensaje --}}
+        {{ Form::open(['route' => ['deletePet', ':PET_ID'], 'method' => 'delete', 'id' => 'formDeletePet'])  }}
+        {{ Form::close()}}
     </div>
 
 

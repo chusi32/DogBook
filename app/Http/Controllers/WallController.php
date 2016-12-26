@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Pet;
 use App\User;
+use App\Company;
 use Auth;
 use Session;
 
@@ -51,8 +52,10 @@ class WallController extends Controller
                 //que han dejado otras mascotas.
                 $adminWall = true;
 
+                //Se obtienen las empresas para mostrar la publicidad
+                $companies = Company::all();
 
-                return view('wall.wall', compact('pet','messages', 'adminWall'));
+                return view('wall.wall', compact('pet','messages', 'adminWall', 'companies'));
             }
             catch (ModelNotFoundException $e)
             {
