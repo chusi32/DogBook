@@ -31,6 +31,12 @@ class RegisterController extends Controller
     protected $redirectTo = '/home';
 
     /**
+    *   Constante para el path a media
+    */
+    protected $custom_path = '../public/media/'; //->Desarrollo
+    //protected $custom_path = '../public_html/media/'; //->Producción
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -75,14 +81,14 @@ class RegisterController extends Controller
         ]) -> id;
 
         if($idUser > 0) {
-            if(!File::exists('../public/media')) {
+            if(!File::exists($this->custom_path)) {
                 return false;
             }
             else {
-                if(!mkdir('../public/media/'.$idUser, 0777)){
+                if(!mkdir($this->custom_path . $idUser, 0777)){
                     return false;
                 }
-                mkdir('../public/media/'.$idUser.'/pets', 0777);
+                mkdir($this->custom_path . $idUser.'/pets', 0777);
 
                 return User::find($idUser);
             }

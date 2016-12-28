@@ -13,7 +13,9 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {!! Html::image(asset('images/logo_dogbook.jpg'), 'logo',
+                        array('class' => 'img-responsive logo', 'style' => 'width:100px;height:35px;')) !!}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
             </div>
 

@@ -10,6 +10,10 @@ nav, .navbar {
     color: white !important;
 }
 
+img.logo {
+    margin: 0px !important;
+}
+
 ul.nav a {
     color: white !important;
 }
@@ -133,7 +137,7 @@ input[type=select],
 }
 
 /*TEXTOS*/
-h1 {
+h1, .title3th {
     font-family: 'Raleway', sans-serif !important;
     color: #26408B !important;
     margin-bottom: 20px;

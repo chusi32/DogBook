@@ -28,6 +28,13 @@ use View;
 
 class PetController extends Controller
 {
+
+    /**
+    *   Constante para el path a media
+    */
+    protected $custom_path = '../public/media/'; //->Desarrollo
+    //protected $custom_path = '../public_html/media/'; //->Producción
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -81,19 +88,19 @@ class PetController extends Controller
         $path = $currentUser->id.'/pets';
         if(File::exists('../public/media/'.$path))
         {
-            mkdir('../public/media/'.$path.'/'.$idPet, 0777);
+            mkdir($this->custom_path . $path.'/'.$idPet, 0777);
             if(isset($data['image'])) {
-                $request->file('image')->move('../public/media/'.$path.'/'.$idPet, 'profile.png');
+                $request->file('image')->move($this->custom_path . $path.'/'.$idPet, 'profile.png');
             }
             else {
-                copy('../public/resources/images/profile.png', '../public/media/'.$path.'/'.$idPet.'/profile.png');
+                copy($this->custom_path.'resources/images/profile.png', $this->custom_path . $path.'/'.$idPet.'/profile.png');
             }
         }
         //Se crea el directorio para almacenar las fotos del muro
-        mkdir('../public/media/'.$path.'/'.$idPet.'/wall', 0777);
+        mkdir($this->custom_path . $path.'/'.$idPet.'/wall', 0777);
 
         //Se crea el directorio para almacenar las fotos de la galeria
-        mkdir('../public/media/'.$path.'/'.$idPet.'/gallery', 0777);
+        mkdir($this->custom_path . $path.'/'.$idPet.'/gallery', 0777);
 
         //Se guarda la información del pedigree si se ha seleccionado que tiene.
         if(isset($data['chkPedigree'])){
@@ -201,7 +208,7 @@ class PetController extends Controller
                     Pedigree::where('id', '=', $pet->idPedigree)->delete();
                 }
                 //Borrar carpeta
-                $this->eliminarDir('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id);
+                $this->eliminarDir($this->custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id);
                 $pet->delete();
 
                 return response()->json([
@@ -377,9 +384,9 @@ class PetController extends Controller
     private function modifyImageProfile($idCurrentUser, $request)
     {
         $path = $idCurrentUser.'/pets';
-        if(File::exists('../public/media/'.$path))
+        if(File::exists($this->custom_path . $path))
         {
-            $request->file('image')->move('../public/media/'.$path.'/'.$request->id, 'profile.png');
+            $request->file('image')->move($this->custom_path . $path.'/'.$request->id, 'profile.png');
         }
     }
 

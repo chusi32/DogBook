@@ -15,6 +15,13 @@ use Redirect;
 
 class UserController extends Controller
 {
+
+    /**
+    *   Constante para el path a media
+    */
+    protected $custom_path = '../public/media/'; //->Desarrollo
+    //protected $custom_path = '../public_html/media/'; //->Producción
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -89,10 +96,10 @@ class UserController extends Controller
                 Pedigree::where('id', '=', $value->idPedigree)->delete();
             }
             //Borrar carpeta
-            $this->deleteDir('../public/media/'.$value->idUsuario.'/pets'.'/'.$value->id);
+            $this->deleteDir($this->custom_path . $value->idUsuario.'/pets'.'/'.$value->id);
             $value->delete();
         }
-        $this->deleteDir('../public/media/'.$user->id);
+        $this->deleteDir($this->custom_path . $user->id);
         $user->delete();
         return redirect('/');
     }

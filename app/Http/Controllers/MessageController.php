@@ -19,6 +19,12 @@ use View;
 
 class MessageController extends Controller
 {
+    /**
+    *   Constante para el path a media
+    */
+    protected $custom_path = '../public/media/'; //->Desarrollo
+    //protected $custom_path = '../public_html/media/'; //->Producción
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -65,7 +71,7 @@ class MessageController extends Controller
             if(!empty($request->image))
             {
                 $pet = Pet::find($request->idPet);
-                $request->file('image')->move('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall', $request->image->getClientOriginalName());
+                $request->file('image')->move($this->custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/wall', $request->image->getClientOriginalName());
 
                 //return $this->getWallPet($request->idPet);
             }
@@ -111,7 +117,7 @@ class MessageController extends Controller
             $pet = $message->pet;
             if(!is_null($message->urlImagen))
             {
-                unlink('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/wall'.'/'.$message->urlImagen);
+                unlink($this->custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/wall'.'/'.$message->urlImagen);
             }
             $message->delete();
             return response()->json([
@@ -174,7 +180,8 @@ class MessageController extends Controller
             try {
                 $pet = Pet::findOrFail(Session::get('pet'));
                 $petReceived = Pet::findOrFail($id);
-                return view('messages.respond_private_message', compact('pet', 'petReceived'));
+                $companies = Company::all();
+                return view('messages.respond_private_message', compact('pet', 'petReceived', 'companies'));
             } catch (ModelNotFoundException $ex) {
                 return "Ocurrió un problema al preparar el mensaje";
             }
@@ -236,8 +243,9 @@ class MessageController extends Controller
                 try {
                     $pet = Pet::findOrFail(Session::get('pet'));
                     $messages = $pet->wall->privateMessages()->paginate(5);
+                    $companies = Company::all();
                     $message = "Mensaje respondido";
-                    return view('messages.private_message_pet', compact('pet', 'message', 'messages'));
+                    return view('messages.private_message_pet', compact('pet', 'message', 'messages', 'companies'));
                 } catch (ModelNotFoundException $ex) {
                     return "No se pudo abrir la bandeja de entrada. Inténtelo más tarde";
                 }

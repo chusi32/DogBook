@@ -5,28 +5,26 @@
 @endsection
 
 @section('css')
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles/wall/wall.css" rel="stylesheet">
+    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles/wall/wall.css" rel="stylesheet"> --}}
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sx-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-2 col-lg-offset-2">
-            <h2 class="text-center">Mensajes privados</h2>
-            @if(session('message'))
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    {{session('message')}}
-                </div>
-            @endif
-        </div>
-
-    <div class="row">
         <div class="col-sx-2 col-sm-2 col-md-2 col-lg-2">
-            {{-- TODO: Para la publicidad --}}
+            @include('company.list_companies')
         </div>
         <div class="col-sx-8 col-sm-8 col-md-8 col-lg-8">
-            <h2 class="text-center">Responder a {{$petReceived->nombre}}</h2>
+            <div class="row">
+                <h1 class="text-center"> -- Mensaje privado --</h1>
+                @if(session('message'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        {{session('message')}}
+                    </div>
+                @endif
+            </div>
+            <h3 class="text-center title3th">Responder a {{$petReceived->nombre}}</h3>
             {{-- Formulario para responder el mensaje --}}
             {{ Form::open(array('route' => 'respondPrivateMessage', 'method' => 'POST', 'files' => true, 'id' => 'formPrivateMessage'), array('role' => 'form')) }}
                 {{ Form::hidden('idPetReceived', $petReceived->id, array('id' => 'idPetReceived')) }}

@@ -86,7 +86,8 @@
                         {{ Form::textarea('description', null, ['id' => 'description','class' => 'form-control']) }}
                     </div>
                 </div>
-                {{ Form::submit('Enviar')}}
+                <a href="{{ URL::previous() }}" class="btn btn-danger pull-right">Cancelar</a>
+                {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
         </div>
     </div>

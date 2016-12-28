@@ -16,6 +16,12 @@ use View;
 
 class GalleryController extends Controller
 {
+    /**
+    *   Constante para el path a media
+    */
+    protected $custom_path = '../public/media/'; //->Desarrollo
+    //protected $custom_path = '../public_html/media/'; //->Producción
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -77,7 +83,7 @@ class GalleryController extends Controller
         if($this->validPet(Auth::user()->id, $pet->id))
         {
             //Se comprueba si se ha podido guardar la imágen
-            if($request->file('image')->move('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery', $request->image->getClientOriginalName()))
+            if($request->file('image')->move($this->custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery', $request->image->getClientOriginalName()))
             {
                 $pathImage = 'media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/';
                 //Se guarda y se comprueba si se ha guardado la información de la imágen en la base de datos

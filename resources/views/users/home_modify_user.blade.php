@@ -56,11 +56,9 @@
                       </span>
                   @endif
                 </div> --}}
+                <a href="{{ URL::previous() }}" class="btn btn-danger pull-right">Cancelar</a>
                 {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}
             {{ Form::close()}}
-            <a href="{{ url('/goBack')}}">
-                <button class="btn btn-danger pull-right">Cancelar</button>
-            </a>
         </div>
     </div>
 </div>
