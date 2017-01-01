@@ -96,6 +96,31 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <label for="AcceptTerms">Acepto las condiciones y política de privacidad de DogBook.</label>
+                                    {{ Form::checkbox('AcceptTerms', 1, null, ['class' => '', 'id'=>'AcceptTerms']) }}
+                                    @if ($errors->has('AcceptTerms'))
+                                        <span class="help-block">
+                                            <strong class="alert alert-danger">{{ $errors->first('AcceptTerms') }}</strong>
+                                        </span>
+                                    @endif
+                                    <br />
+                                    <small><a href="#!" id="viewTerms">Mas info.</a></small>
+                                    <div id="terms">
+                                        <p>
+                                            Al registrarte, aceptas las condiciones y reconoces haber leido
+                                            la politica de privacidad de DogBook y estar conforme. También
+                                            te comprometes a hacer un bunes uso de la aplicación y a no hacer nada
+                                            que pueda ser delito o pueda infringir cualquie tipo de ley. DogBook no
+                                            se responsabiliza de las malas acciones de los usuarios. El usuario que
+                                            infrinja estos acuerdos legales será expulsado del sistema inmediatamente.
+                                        </p>
+                                        <a href="{{ url('/privacy') }}" class="btn btn-custom text center">Ver poltica de privacidad</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-custom pull-right">
                                     Registrar
                                 </button>
@@ -107,4 +132,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script src="/js/scripts/register/register.js"></script>
 @endsection

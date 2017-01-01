@@ -13,8 +13,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {!! Html::image(asset('images/logo_dogbook.jpg'), 'logo',
-                        array('class' => 'img-responsive logo', 'style' => 'width:100px;height:35px;')) !!}
+                    {!! Html::image(asset('media/resources/images/logo_dogbook_encabezado_grande.jpg'), 'foto de portada',
+                        array('class' => 'img-resizable img-navBar')) !!}
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
             </div>

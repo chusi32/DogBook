@@ -10,9 +10,9 @@ nav, .navbar {
     color: white !important;
 }
 
-img.logo {
+/*img.logo {
     margin: 0px !important;
-}
+}*/
 
 ul.nav a {
     color: white !important;
@@ -24,6 +24,12 @@ ul.nav a: hover {
 /*Estilos para el footer*/
 footer {
     color: #26408B !important;
+}
+
+/*Imagen Logo*/
+.img-navBar{
+    width: 200px !important;
+    height: 30px !important;
 }
 /*footer div a {
     color: #26408B !important;

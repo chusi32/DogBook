@@ -35,7 +35,7 @@ class GalleryController extends Controller
         $companies = Company::all();
         $pet = Pet::find(Session::get('pet'));
         $gallery = $pet->gallery;
-        $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
+        $images = Image::where('idGaleria', '=', $gallery->id)->paginate(10);
         $adminGallery = true;
         return view('gallery.gallery', compact('pet', 'images', 'companies', 'adminGallery'));
         // $pet = Pet::find(Session::get('pet'));
@@ -62,12 +62,7 @@ class GalleryController extends Controller
             } catch (ModelNotFoundException $e) {
                 return "Ocurrio un problema en la galeria. Inténtelo más tarde";
             }
-        }
-
-    }
-
-    /**
-    *   Función que guarda una imagen nueva en la galeria
+        }nueva en la galeria
     */
     public function saveImage(ImageRequest $request)
     {
@@ -128,9 +123,10 @@ class GalleryController extends Controller
     {
         if($request->ajax())
         {
+            // dd($this->$custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen);
             // return response()->json([
-            //     'message' => $id
-            // ]);
+            //      'message' => $this->$custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen
+            //  ]);
             try
             {
                 $image = Image::findOrFail($id);
@@ -142,8 +138,7 @@ class GalleryController extends Controller
                     'message' => "Ocurrió un error: ".$e->getMessage()
                 ]);
             }
-
-            if(unlink('../public/media/'.$pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen))
+            if(unlink($this->$custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen))
             {
                 $image->delete();
                 return response()->json([
@@ -170,7 +165,7 @@ class GalleryController extends Controller
     private function validPet($idUser, $idPet)
     {
         $pet = Pet::find($idPet);
-        if ($pet -> idUsuario === $idUser) {
+        if ($pet -> idUsuario == $idUser) {
             return true;
         }
         else {

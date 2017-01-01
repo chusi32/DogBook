@@ -48,7 +48,7 @@ class HomePetController extends Controller
     private function validPet($idUser, $idPet)
     {
         $pet = Pet::find($idPet);
-        if ($pet -> idUsuario === $idUser) {
+        if ($pet -> idUsuario == $idUser) {
             return true;
         }
         else {

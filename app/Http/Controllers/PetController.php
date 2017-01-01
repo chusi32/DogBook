@@ -86,7 +86,7 @@ class PetController extends Controller
         //Se guarda la foto de perfil. Si no se ha seleccionado ninguna,
         //se pone la de defecto.
         $path = $currentUser->id.'/pets';
-        if(File::exists('../public/media/'.$path))
+        if(File::exists($this->custom_path . $path))
         {
             mkdir($this->custom_path . $path.'/'.$idPet, 0777);
             if(isset($data['image'])) {
@@ -370,7 +370,7 @@ class PetController extends Controller
     private function validPet($idUser, $idPet)
     {
         $pet = Pet::find($idPet);
-        if ($pet -> idUsuario === $idUser) {
+        if ($pet -> idUsuario == $idUser) {
             return true;
         }
         else {

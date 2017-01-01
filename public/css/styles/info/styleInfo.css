@@ -95,3 +95,9 @@ div.panel-default {
     border-width: 2px !important;
     margin-bottom: 20px !important;
 }
+
+/*Imagen Logo*/
+.img-navBar{
+    width: 200px !important;
+    height: 30px !important;
+}
