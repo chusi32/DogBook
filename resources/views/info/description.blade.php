@@ -25,32 +25,31 @@
               <div class="featureinfo">
                 <h4 class="text-center">¿Que es DogBook?</h4>
                 <p class="text-center">
-                  DogBook es una aplicación Web diseñada por amantes de los
-                  perros y dirigida a amantes de los perros.
+                    DogBook es una aplicación Web diseñada por y para amantes de los perros.
+                    DogBook ha sido creada para facilitaros la vida a tí y a tu perr@, todo
+                    lo que él puede necesitar, al alcance de tu mano:
                 </p>
-                <p>
-                    DogBook fue creada para facilitaros la vida a ti y a tu
-                    perr@, todo lo que él puede necesitar, al alcance de tu mano:
-                </p>
+
                 <ul>
-                    <li>
+                    <li class="text-center">
                         Crea un perfil que identifique a tu perro en la comunidad
-                        'DogBook'. Sube una foto, indica sus intereses, su raza
-                        y añade otros muchos rasgos que lo definan a la perfección.
+                        'DogBook'. Sube una foto, indica sus intereses, su raza y
+                        añade otros muchos rasgos que lo definan a la perfección.
                     </li>
-                    <li>
+                    <li class="text-center">
                         Busca y localiza según tus propios filtros otros perros
                         que estén cerca de ti, chatea con ellos, añadelos como
                         favoritos y ... !Lo que surja¡
                     </li>
-                    <li>
-                        Localiza y administra por listaas una gran cantidad de
+                    <li class="text-center">
+                        Localiza y administra por listas una gran cantidad de
                         servicios que seŕan de una enorme utilidad para ti y tu
                         perro.
                     </li>
-                    <li>
-                        Gestiona y organiza los listados de 'perros' y 'servicios'
-                        facoritos según distintos criterios (distancia, utilidad ...)
+                    <li class="text-center">
+                        Localiza y administra por listas una gran cantidad de
+                        servicios que seŕan de una enorme utilidad para ti y tu
+                        perro.
                     </li>
                 </ul>
               </div>

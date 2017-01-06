@@ -39,7 +39,7 @@ ul.nav li a {
   margin-top: 60px;
   margin-bottom: 15px;
   border-style: solid !important;
-  border-color: #D1495B;
+  /*border-color: #D1495B;*/
   border-width: 2px !important;
 }
 .iconbox-icon {
@@ -54,7 +54,7 @@ ul.nav li a {
   height: 100px;
   margin-top: -70px;
   border-style: solid !important;
-  border-color: #D1495B;
+  /*border-color: #D1495B;*/
   border-width: 2px !important;
 }
 .iconbox-icon span {
@@ -91,7 +91,7 @@ div.panel-body {
 
 div.panel-default {
     border-style: solid !important;
-    border-color: #D1495B;
+    /*border-color: #D1495B;*/
     border-width: 2px !important;
     margin-bottom: 20px !important;
 }

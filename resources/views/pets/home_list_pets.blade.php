@@ -36,7 +36,10 @@
             </div>
 
         @else
-            <p> Todavía no tiene ninguna mascota </p>
+            <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p> <strong>Todavía no tiene ninguna mascota. Cree una para interactuar con otras.</strong></p>
+            </div>
         @endif
         <a href="{{ url('/newPet')}}">
             <button class="btn btn-custom pull-right">Nueva mascota</button>

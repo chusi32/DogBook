@@ -145,3 +145,11 @@ Route::post('/respondPrivateMessage', [
     'as' => 'respondPrivateMessage',
     'uses' => 'MessageController@respondPrivateMessage'
 ]);
+
+/**
+*   Rutas para los favoritos
+*/
+Route::post('/addFavorite/{id}', [
+    'as' => 'addFavorite',
+    'uses' => 'FavoriteController@addFavorite'
+]);

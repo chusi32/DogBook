@@ -11,17 +11,26 @@ $(document).ready(function(){
     //Ocultamos la region del div de la información del pedigree
     $('#pedigree').hide();
 
+    //Si está el checkbox de pedigree marcado al inicio de la carga de la página,
+    //significa que se ha intentado registrar pero ha dado fallo la validación de
+    //la información del pedigree. Por lo tanto mostramos el div de pedigree para
+    //que se vea el error y si no lo ocultamos.
+    if($('#chkPedigree').is(':checked'))
+        $('#pedigree').show();
+    else
+        $('#pedigree').hide();
+        
     //Mostrar u ocultar el div de la info del pedigree dependiendo del estado del checkbox
     $("#chkPedigree").click(function() {
-    if($(this).is(':checked')) {
-        $('#pedigree').toggle();
-    } else {
-        $('#pedigree').toggle();
-        $('#nameFather').val('');
-        $('#nameMother').val('');
-        $('#description').val('')
-    }
-});
+        if($(this).is(':checked')) {
+            $('#pedigree').toggle();
+        } else {
+            $('#pedigree').toggle();
+            $('#nameFather').val('');
+            $('#nameMother').val('');
+            $('#description').val('')
+        }
+    });
 });
 
 $('#province').change(function(event){

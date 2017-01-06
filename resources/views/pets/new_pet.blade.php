@@ -48,6 +48,11 @@
                   {{ Form::label('name', 'Nombre')}}
                   {{ Form::text('name', null, array('class' => 'form-control', 'required')) }}
                 </div>
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong class="alert-danger text-danger">{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
                 <div class="form-group">
                   {{ Form::label('age', 'Edad')}}
                   {{ Form::selectRange('age', 1, 20, 1, ['class' => 'form-control']) }}
@@ -77,14 +82,29 @@
                         {{ Form::label('nameFather', 'Nombre del padre')}}
                         {{ Form::text('nameFather', null, array('class' => 'form-control')) }}
                     </div>
+                    @if ($errors->has('nameFather'))
+                        <span class="help-block">
+                            <strong class="alert-danger text-danger">{{ $errors->first('nameFather') }}</strong>
+                        </span>
+                    @endif
                     <div class="form-group">
                         {{ Form::label('nameMother', 'Nombre de la madre')}}
                         {{ Form::text('nameMother', null, array('id' => 'nameMother', 'class' => 'form-control')) }}
                     </div>
+                    @if ($errors->has('nameMother'))
+                        <span class="help-block">
+                            <strong class="alert-danger text-danger">{{ $errors->first('nameMother') }}</strong>
+                        </span>
+                    @endif
                     <div class="form-group">
                         {{ Form::label('description', 'Descripción del pedegree')}}
                         {{ Form::textarea('description', null, ['id' => 'description','class' => 'form-control']) }}
                     </div>
+                    @if ($errors->has('description'))
+                        <span class="help-block">
+                            <strong class="alert-danger text-danger">{{ $errors->first('description') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <a href="{{ URL::previous() }}" class="btn btn-danger pull-right">Cancelar</a>
                 {{ Form::submit('Guardar', array('class' => 'btn btn-custom pull-right')) }}

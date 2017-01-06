@@ -46,6 +46,11 @@ class Pet extends Model
         return $this->hasOne('App\Gallery', 'idMascota', 'id');
     }
 
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite', 'idMascota', 'id');
+    }
+
     /**
     *   FILTROS
     */

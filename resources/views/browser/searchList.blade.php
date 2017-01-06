@@ -27,22 +27,18 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 {{ HTML::link('/visit'.'/'.$value['id'], 'Visitar', array('class' => 'btn btn-custom'))}}
-                {{ Form::button('Añadir a favoritos', array('class'=>'btn btn-custom'))}}
-                {{-- <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url('/modifyProfile'.'/'.$value['id']) }}">Cambiar imagen de perfil</a></li>
-                    <li><a href="{{ url('/modifyPet'.'/'.$value['id']) }}">Modificar datos</a></li>
-                    <li><a href="{{ url('/modifyPedigreePetForm'.'/'.$value['id']) }}">Modificar Pedigree</a></li>
-                    <li><a href="{{ url('/deletePet'.'/'.$value['id']) }}">Eliminar</a></li>
-                </ul> --}}
+                {{ Form::button('Añadir a favoritos', array('class'=>'btn btn-custom btnAddFavorite', 'id'=>'prueba', 'data-id'=> $value->id))}}
             </div>
         </div>
     </div>
     <hr />
 @endforeach
 {!! $pets->appends(Request::all())->render() !!}
+
+{{-- Formulario para añadir a favoritos --}}
+{{ Form::open(['route' => ['addFavorite', ':FAVORITE_ID'], 'method' => 'post', 'id' => 'formAddFavorite'])  }}
+    {{ csrf_field() }}
+{{ Form::close()}}
 
 
 

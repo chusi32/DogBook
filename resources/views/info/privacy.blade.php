@@ -14,11 +14,11 @@
                     Privacidad de los datos personales:
                 </div>
                 <div class="panel-body">
-                    Sus datos personales le corresponden usted y esta aplicacion
-                    es responsable de no revelar ninguna clase de información
-                    que le pertenezca ( email, números de ip... ), salvo su
-                    expresa autorización o fuerza de naturaleza mayor de tipo
-                    legal que lo involucren en cualquier tipo de delito.
+                    Sus datos personales le corresponden a usted y esta aplicación
+                    es responsable de no revelar ninguna clase de información que
+                    le pertenezca ( email, números de ip... ), salvo su expresa
+                    autorización o fuerza de naturaleza mayor de tipo legal que
+                    lo involucren en cualquier tipo de delito.
                 </div>
             </div>
             <div class="panel panel-default">
@@ -27,11 +27,10 @@
                 </div>
                 <div class="panel-body">
                     Los post publicados son responsabilidad del autor del blog.
-                    Los comentarios, vertidos por los visitantes, son
-                    responsabilidad de ellos mismos y en caso de que alguno
-                    viole las reglas mínimas de respeto a los demás y a las
-                    buenas costumbres, éstos serían borrados por el editor del
-                    blog, sin esperar su consentimiento.
+                    Los comentarios vertidos por los visitantes, son responsabilidad
+                    de ellos mismos y en caso de que alguno viole las reglas mínimas
+                    de respeto a los demás y a las buenas costumbres, éstos serán
+                    borrados por el editor del blog sin esperar su consentimiento.
                 </div>
             </div>
             <div class="panel panel-default">
@@ -39,13 +38,12 @@
                     Seguridad de su información personal:
                 </div>
                 <div class="panel-body">
-                    Esta aplicación se hace responsable de velar por su
-                    seguridad, por la privacidad de su información y por el
-                    respeto a sus datos, de acuerdo con las limitaciones que
-                    la actual Internet os provee, siendo conscientes que no
-                    estamos ecluídos de sufrir algún ataque por parte de
-                     crackers o usuarios malintencionados que ejerzan la
-                     delincuencia informática.
+                    Esta aplicación se hace responsable de velar por su seguridad,
+                    por la privacidad de su información y por el respeto a sus
+                    datos, de acuerdo con las limitaciones que la actual
+                    Internet os provee, siendo conscientes que no estamos
+                    excluídos de sufrir algún ataque por parte de hackers o
+                    usuarios malintencionados que ejerzan la delincuencia informática.
                 </div>
             </div>
             <div class="panel panel-default">
@@ -67,31 +65,31 @@
                 <div class="panel-body">
                     Al proporcionarnos sus datos personales, estando de acuerdo
                     con la Política de Privacidad aquí consignada, nos autoriza
-                    para el siguiente uso de su información: a) para el fin
-                    mismo por lo cual se ha suministrado; b) para considerarlo
-                    dentro de nuestras estadísticas de tráfico, incrementando
-                    así nuestra oferta publicitaria y de mercado;
-                    c) para orientar mejor los servicios aquí ofrecidos y
-                    valorarlos a su criterio, y d) para enviar e-mails con
-                    nuestros boletines, responder inquietudes o comentarios, y
-                    mantener informado a nuestros usuarios.
+                    para el siguiente uso de su información: a) para el fin mismo
+                    por lo cual se ha suministrado; b) para considerarlo dentro
+                    de nuestras estadísticas de tráfico, incrementando así
+                    nuestra oferta publicitaria y de mercado; c) para orientar
+                    mejor los servicios aquí ofrecidos y valorarlos a su criterio,
+                    y d) para enviar e-mails con nuestros boletines, responder
+                    inquietudes o comentarios, y mantener informados a nuestros
+                    usuarios.
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Uso de los cookies:
+                    Uso de las cookies:
                 </div>
                 <div class="panel-body">
                     El uso de cookies y su dirección IP, tomados por este sitio,
-                    se realiza solo con la finalidad de mantenerles un sitio de
-                    acuerdo a sus preferencias locales (tales como navegador web
-                    usado, sistema operati vo, ISP, etc.). Las “cookies”
+                    se realiza sólo con la finalidad de mantenerles un sitio de
+                    acuerdo a sus preferencias locales,tales como ( navegador web
+                    usado, sistema operativo, ISP, etc.). Las “cookies”
                     permiten entregar un contenido ajustado a los intereses y
                     necesidades de nuestros usuarios/visitantes. También podrían
-                    usarse cookies de Terceros que estén presentes en e ste
-                    Weblog, como anunciantes o publicidad del mismo, con el
-                    único fin de proveer informaciones adicionales o reelevantes
-                    a la Navegación del Usuario en este Sitio Web.
+                    usarse cookies de terceros que estén presentes en este Weblog,
+                    como anunciantes o publicidad del mismo, con el único fin de
+                    proveer informaciones adicionales o reelevantes a la Navegación
+                    del Usuario en este Sitio Web.
                 </div>
             </div>
             <div class="panel panel-default">
@@ -102,7 +100,7 @@
                     El sitio web se reserva el derecho de modificar, rectificar,
                     alterar, agregar o eliminar cualquier punto del presente
                     escrito en cualquier momento y sin previo aviso, siendo su
-                    responsabilidad el mantener se informado del mismo para una
+                    responsabilidad el mantenerse informado del mismo para una
                     adecuada administración de su información.
                 </div>
             </div>

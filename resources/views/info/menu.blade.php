@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     {!! Html::image(asset('media/resources/images/logo_dogbook_encabezado_grande.jpg'), 'foto de portada',
                         array('class' => 'img-responsive img-navBar')) !!}
                 </a>

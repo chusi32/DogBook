@@ -35,7 +35,7 @@ class GalleryController extends Controller
         $companies = Company::all();
         $pet = Pet::find(Session::get('pet'));
         $gallery = $pet->gallery;
-        $images = Image::where('idGaleria', '=', $gallery->id)->paginate(10);
+        $images = Image::where('idGaleria', '=', $gallery->id)->get();//->paginate(5);
         $adminGallery = true;
         return view('gallery.gallery', compact('pet', 'images', 'companies', 'adminGallery'));
         // $pet = Pet::find(Session::get('pet'));
@@ -55,14 +55,18 @@ class GalleryController extends Controller
                 $pet = Pet::findorFail($id);
                 $gallery = $pet->gallery;
                 $adminGallery = false;
-                $images = Image::where('idGaleria', '=', $gallery->id)->paginate(1);
+                $images = Image::where('idGaleria', '=', $gallery->id)->get();
 
                 return response()->json([View::make('gallery.images', compact('images', 'adminGallery'))->render()]);
 
             } catch (ModelNotFoundException $e) {
                 return "Ocurrio un problema en la galeria. Inténtelo más tarde";
             }
-        }nueva en la galeria
+        }
+    }
+
+    /**
+    *   Función que inserta una nueva imágen en la galeria
     */
     public function saveImage(ImageRequest $request)
     {

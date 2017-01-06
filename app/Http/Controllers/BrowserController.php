@@ -52,19 +52,6 @@ class BrowserController extends Controller
                         ->where('idUsuario', '!=', Auth::user()->id)->paginate(5);//->get()
 
                 return response()->json([View::make('browser.searchList', compact('pets'))->render()]);
-
-
-
-
-
-
-            // $view = View::make('browser.searchList', compact('pets'));
-            // $content = $view->render();
-            //
-            // return response()->json([
-            //     'partial' => $content
-            // ]);
-
         }
     }
 }

@@ -57,6 +57,8 @@ $(document).ready(function(){
         $('#name').val('');
     });
 
+
+
 });
 
 //Enviar formulario al pulsar boton
@@ -83,7 +85,7 @@ $(document).on('click', '.pagination a', function(e){
     var url = form.attr('action');
     var data = form.serializeArray();
     data.push({name: 'page', value: page});
-    // alert(data);
+
 
 
     $.ajax({
@@ -91,11 +93,35 @@ $(document).on('click', '.pagination a', function(e){
         headers: {
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-        data: data,//{page: page},
+        data: data,
         type: 'POST',
         dataType: 'json',
         success: function(data){
             $('#searchResult').empty().html(data);
         }
     });
+});
+
+//Evento para añadir mascotas a favoritos
+$(document).on('click', '.btnAddFavorite', function(){
+
+    // event.preventDefault();
+
+    if (confirm('¿Desea agregar esta mascota a su lista de favoritos?'))
+    {
+        var favorite = $(this);
+        var id = $(this).data('id');
+        alert(id);
+        var form = $('#formAddFavorite');
+        var url = form.attr('action').replace(':FAVORITE_ID', id);
+        var data = form.serialize();
+
+        $.post(url, data, function(result){
+             alert(result.message);
+             message.fadeOut();
+         }).fail(function(){
+             alert('Ocurrio un problema al eliminar. Intentelo más tarde');
+             message.show();
+         });
+    }
 });

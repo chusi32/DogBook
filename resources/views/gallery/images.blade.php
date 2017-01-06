@@ -19,7 +19,7 @@
             </div> <!-- col-6 / end -->
         @endforeach
     </div> <!-- list-group / end -->
-    {!! $images->render() !!}
+    {{-- {!! $images->render() !!} --}}
     </div> <!-- row / end -->
     </div> <!-- container / end -->
     {{ Form::open(['route' => ['deleteImageGallery', ':IMAGE_ID'], 'method' => 'delete', 'id' => 'formDeleteImageGallery'])  }}
