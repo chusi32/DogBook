@@ -57,8 +57,6 @@ $(document).ready(function(){
         $('#name').val('');
     });
 
-
-
 });
 
 //Enviar formulario al pulsar boton
@@ -74,6 +72,24 @@ $('#btnSearch').click(function(event) {
         alert('Ocurrio un problema al buscar. Intentelo más tarde');
         // message.show();
     });
+});
+
+//Capturar la tecla enter para realizar la busqueda cuando se pulse enter después de
+//escribir el nombre en el filtros
+$('#name').keypress(function(e) {
+    if(e.which == 13) {
+        var form = $('#formBrowser');
+        var url = form.attr('action');
+        var data = form.serialize();
+
+        $.post(url, data, function(result){
+            $('#searchResult').empty().html(result);
+        }).fail(function(){
+            alert('Ocurrio un problema al buscar. Intentelo más tarde');
+        });
+        return false;
+    }
+
 });
 
 //Evento para la paginación
@@ -104,23 +120,49 @@ $(document).on('click', '.pagination a', function(e){
 
 //Evento para añadir mascotas a favoritos
 $(document).on('click', '.btnAddFavorite', function(){
-
-    // event.preventDefault();
-
     if (confirm('¿Desea agregar esta mascota a su lista de favoritos?'))
     {
         var favorite = $(this);
         var id = $(this).data('id');
-        alert(id);
         var form = $('#formAddFavorite');
         var url = form.attr('action').replace(':FAVORITE_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){
+            if(result.status == 'true')
+            {
+                favorite.text('Eliminar de favoritos');
+                favorite.removeClass('btn btn-custom btnAddFavorite');
+                favorite.addClass('btn btn-danger btnRemoveFavorite');
+            }
              alert(result.message);
-             message.fadeOut();
          }).fail(function(){
-             alert('Ocurrio un problema al eliminar. Intentelo más tarde');
+             alert('Ocurrio un problema al añadir la mascota a la lista de favoritos. Inténtelo más tarde');
+             message.show();
+         });
+    }
+});
+
+//Evento para eliminar la mascota de favoritos
+$(document).on('click', '.btnDeleteFavorite', function(){
+    if (confirm('¿Desea eliminar esta mascota de su lista de favoritos?'))
+    {
+        var favorite = $(this);
+        var id = $(this).data('id');
+        var form = $('#formDeleteFavorite');
+        var url = form.attr('action').replace(':FAVORITE_ID', id);
+        var data = form.serialize();
+
+        $.post(url, data, function(result){
+            if(result.status == 'true')
+            {
+                favorite.text('Añadir a favoritos');
+                favorite.removeClass('btn btn-danger btnRemoveFavorite');
+                favorite.addClass('btn btn-custom btnAddFavorite');
+            }
+             alert(result.message);
+         }).fail(function(){
+             alert('Ocurrio un problema al elimiar la mascota de la lista de favoritos. Inténtelo más tarde');
              message.show();
          });
     }

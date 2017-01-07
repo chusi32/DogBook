@@ -11,4 +11,12 @@ class Favorite extends Model
     protected $fillable = [
         'idMascota', 'idMascotaFavorito'
     ];
+
+    /**
+    *   RELACIONES
+    */
+    public function pet()
+    {
+        return $this->belongsTo('App\Pet', 'idMascotaFavorito', 'id');
+    }
 }

@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="{{ url('/description')}}">Sobre DogBook</a></li>
-                    <li><a href="#">Patrocinate</a></li>
+                    <li><a href="{{ url('/publicity')}}">Publicitate</a></li>
                     <li><a href="{{ url('/privacy')}}">Privacidad</a></li>
                     <li><a href="{{ url('/me')}}">Creador del sitio</a></li>
                 </ul>

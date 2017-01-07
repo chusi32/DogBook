@@ -23,6 +23,16 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     &nbsp;
+                    @if (!Auth::guest())
+                            <li>
+                                <a href="{{ url('/home') }}">Home</a>
+                            </li>
+                            @if (!is_null(Session::get('petId')))
+                                <li>
+                                    <a href="#!" onclick="return false;">Mascota en uso: <b>{{ Session::get('petId')}}</b></a>
+                                </li>
+                            @endif
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

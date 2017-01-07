@@ -3,7 +3,7 @@
     @if(!count($pets) > 0)
         <div class="alert alert-dismissible alert-danger">
             <p>
-                <b>No se han encontrado coincidencias.</b>
+                <b>Nada que mostrar.</b>
             </p>
         </div>
     @else
@@ -27,7 +27,27 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 {{ HTML::link('/visit'.'/'.$value['id'], 'Visitar', array('class' => 'btn btn-custom'))}}
-                {{ Form::button('Añadir a favoritos', array('class'=>'btn btn-custom btnAddFavorite', 'id'=>'prueba', 'data-id'=> $value->id))}}
+                <?php
+                $isFavorite = false;
+                foreach ($value->favorites as $key => $fav)
+                {
+                    if ($fav->idMascota == Session::get('pet'))
+                    {
+                        $isFavorite = true;
+                    }
+                }
+                if($isFavorite)
+                {
+                    echo "<button class='btn btn-danger btnDeleteFavorite', data-id=$value->id>Eliminar de favoritos</button>";
+                    // {{ Form::button('Añadir a favoritos', array('class'=>'btn btn-custom btnAddFavorite', 'data-id'=> $value->id))}}
+                }
+                else
+                {
+                    echo "<button class='btn btn-custom btnAddFavorite', data-id=$value->id>Añadir a favoritos</button>";
+                    // {{ Form::button('Eliminar de favoritos', array('class'=>'btn btn-danger btndeletefavorite', 'data-id'=> $value->id))}}
+                }
+                ?>
+
             </div>
         </div>
     </div>
@@ -37,6 +57,11 @@
 
 {{-- Formulario para añadir a favoritos --}}
 {{ Form::open(['route' => ['addFavorite', ':FAVORITE_ID'], 'method' => 'post', 'id' => 'formAddFavorite'])  }}
+    {{ csrf_field() }}
+{{ Form::close()}}
+
+{{-- Formulario para eliminar de favoritos --}}
+{{ Form::open(['route' => ['deleteFavorite', ':FAVORITE_ID'], 'method' => 'post', 'id' => 'formDeleteFavorite'])  }}
     {{ csrf_field() }}
 {{ Form::close()}}
 

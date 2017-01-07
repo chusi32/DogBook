@@ -11,10 +11,65 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg12">
-                <h2 class="text-center">Equipo de Desarrollo</h2>
+                <h2 class="text-center">-- Equipo de Desarrollo --</h2>
             </div>
-        </div>
-	       <div class="row">
+        {{-- </div> --}}
+
+    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    	<div class="well well-sm">
+    		<div class="row">
+    			<div class="col-sm-6 col-md-4">
+    				{!! Html::image(asset('media/resources/images/me.png'), 'imágen perfil',
+    					array('height'=>'100', 'weight'=>'100', 'class'=>'img-responsive')) !!}
+    				{{-- <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" /> --}}
+    			</div>
+    			<div class="col-sm-6 col-md-8">
+    				<h4>Jesús Alegre Sancho</h4>
+
+    				<small><cite title="San Francisco, USA">Zaragoza, España <i class="glyphicon glyphicon-map-marker">
+    				</i></cite></small>
+    				<p>
+    					<i class=""></i><b class="data">Fecha de nacimiento: </b>
+    					<br />
+                        <i class=""></i>21/04/89
+                        <br />
+    					<i class=""></i><b class="data">Puesto: </b>
+    					<br />
+                        <i class=""></i>Programador
+                        <br />
+                        <i class=""></i><b class="data">Experiencia: </b>
+    					<br />
+                        <i class=""></i> c#, .NET, Visual Basic, vb.NET, Java, PHP, Javascript,
+                        <br />
+                        <i class=""></i><b class="data">Gustos: </b>
+    					<br />
+                        <i class=""></i>
+                            Persona entusiasta y con ganas de seguir aprendiendo.
+                            Me gusta estar actualizado con la tecnología, dedicando
+                            mis ratos libres a curiosear y estudiar nuevos lenguajes
+                            de programación. Disfruto creando aplicaciones, programas
+                            y webs.
+                        <br />
+                        <i class=""></i><b class="data">Citas favoritas: </b>
+    					<br />
+                        <i class=""></i>
+                            "A veces la persona que nadie imagina capaz de nada es la
+                            que hace cosas que nadie imagina."    Alan Turing
+                        <br />
+    				</p>
+    			</div>
+    		</div>
+
+
+
+
+
+
+
+
+
+
+	       {{-- <div class="row">
 
 		             <div class="col-lg-3 col-sm-6">
 
@@ -53,6 +108,6 @@
 
              </div>
 
-	    </div>
+	    </div> --}}
     </div>
 @endsection

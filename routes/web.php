@@ -38,6 +38,10 @@ Route::get('/description', function () {
     return view('info.description');
 });
 
+Route::get('/publicity', function () {
+    return view('info.publicity');
+});
+
 /**
  * Rutas para Logueo y Registro
  */
@@ -149,7 +153,13 @@ Route::post('/respondPrivateMessage', [
 /**
 *   Rutas para los favoritos
 */
+Route::get('/favorites', 'FavoriteController@index');
 Route::post('/addFavorite/{id}', [
     'as' => 'addFavorite',
     'uses' => 'FavoriteController@addFavorite'
+]);
+
+Route::post('/deleteFavorite/{id}', [
+    'as' => 'deleteFavorite',
+    'uses' => 'FavoriteController@deleteFavorite'
 ]);

@@ -46,7 +46,18 @@ class Pet extends Model
         return $this->hasOne('App\Gallery', 'idMascota', 'id');
     }
 
+    /**
+    *   Para obtener los datos de las mascotas favoritas de una mascota desde la vista
+    */
     public function favorites()
+    {
+        return $this->hasMany('App\Favorite', 'idMascotaFavorito', 'id');
+    }
+
+    /**
+    *   Para obtener los favoritos de la mascota que está logueada
+    */
+    public function getPetFavorites()
     {
         return $this->hasMany('App\Favorite', 'idMascota', 'id');
     }

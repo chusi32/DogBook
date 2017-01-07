@@ -1,6 +1,6 @@
 @if(!count($messages) > 0)
     <div class="row">
-        <div class="alert alert-success alert-dismissible" role="alert">
+        <div class="alert alert-info alert-dismissible" role="alert">
             <p>
                 <b>Su bandeja de entrada está vacia</b>
             </p>

@@ -46,6 +46,7 @@ class WallController extends Controller
                     $messages[$key] = $item;
                 }
                 Session::put('pet', $id);
+                Session::put('petId', $pet->nombre);
 
                 //Variable que determina si la mascota es la administradora del
                 //muro. Creada para que se puedan borrar del muro los mensajes
