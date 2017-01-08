@@ -13,7 +13,7 @@
 </div>
 <br />
 @foreach ($favorites as $key => $value)
-    <div class="row petList">
+    <div class="row petList data-pet">
         <div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <a class="pull-left" href="{{url('/visit'.'/'.$value->pet->id)}}">
@@ -26,15 +26,13 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 {{ HTML::link('/visit'.'/'.$value->pet->id, 'Visitar', array('class' => 'btn btn-custom'))}}
-                {{ Form::button('Eliminar de favoritos', array('class' => 'btn btn-danger btnDeleteFavorite')) }}
+                {{ Form::button('Eliminar de favoritos', array('class' => 'btn btn-danger btnDeleteFavorite', 'data-id'=>$value->pet->id)) }}
             </div>
         </div>
     </div>
-    <hr />
 @endforeach
 {{-- {!! $favorites->render() !!} --}}
 
 {{-- Formulario para eliminar de favoritos --}}
 {{ Form::open(['route' => ['deleteFavorite', ':FAVORITE_ID'], 'method' => 'post', 'id' => 'formDeleteFavorite'])  }}
-    {{ csrf_field() }}
 {{ Form::close()}}

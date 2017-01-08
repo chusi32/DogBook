@@ -4,7 +4,7 @@
             <hr>
             <div class="col-lg-12">
                 <a href="{{ url('/description')}}">Sobre DogBook</a> |
-                <a href="{{ url('/publicity')}}">Publicitate</a> |
+                <a href="{{ url('/publicity')}}">Publicítate</a> |
                 <a href="{{ url('/privacy')}}">Privacidad</a> |
                 <a href="{{ url('/me')}}">Creador del sitio</a>
             </div>

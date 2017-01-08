@@ -56,6 +56,13 @@
                             "A veces la persona que nadie imagina capaz de nada es la
                             que hace cosas que nadie imagina."    Alan Turing
                         <br />
+                        <br />
+                        <br />
+                        <i class=""></i><b class="data">Código del proyecto: </b>
+    					<br />
+                        <i class=""></i>
+                            Puedes acceder al código del proyecto en <a href="https://github.com/chusi32/DogBook">GitHub</a>
+                        <br />
     				</p>
     			</div>
     		</div>

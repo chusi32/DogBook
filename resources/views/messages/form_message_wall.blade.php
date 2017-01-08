@@ -40,7 +40,7 @@
         {{-- Video --}}
         <div class="form-group">
           {{ Form::label('video', 'URL Youtube')}}
-          {{ Form::text('video', null, array('class' => 'form-control')) }}
+          {{ Form::text('video', null, array('class' => 'form-control', 'placeholder'=>'Inserta código embebido. Ejemplo: htlp://www.youtube.com/embed/nombrevideo')) }}
         </div>
         {{ Form::submit('Enviar', array('class' => 'btn btn-custom pull-right')) }}
     {{ Form::close()}}

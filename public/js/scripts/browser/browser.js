@@ -133,7 +133,7 @@ $(document).on('click', '.btnAddFavorite', function(){
             {
                 favorite.text('Eliminar de favoritos');
                 favorite.removeClass('btn btn-custom btnAddFavorite');
-                favorite.addClass('btn btn-danger btnRemoveFavorite');
+                favorite.addClass('btn btn-danger btnDeleteFavorite');
             }
              alert(result.message);
          }).fail(function(){
@@ -157,7 +157,7 @@ $(document).on('click', '.btnDeleteFavorite', function(){
             if(result.status == 'true')
             {
                 favorite.text('Añadir a favoritos');
-                favorite.removeClass('btn btn-danger btnRemoveFavorite');
+                favorite.removeClass('btn btn-danger btnDeleteFavorite');
                 favorite.addClass('btn btn-custom btnAddFavorite');
             }
              alert(result.message);

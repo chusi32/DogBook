@@ -5,8 +5,7 @@
 @endsection
 
 @section('css')
-    {{-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
-    {{-- <link href="/css/styles/browser/browser.css" rel="stylesheet"> --}}
+
 @endsection
 
 @section('headJs')
@@ -39,5 +38,5 @@
 @endsection
 
 @section('js')
-    <script src="/js/scripts/browser/browser.js"></script>
+    <script src="/js/scripts/favorites/favorites.js"></script>
 @endsection

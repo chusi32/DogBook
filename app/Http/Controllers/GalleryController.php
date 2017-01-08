@@ -142,7 +142,7 @@ class GalleryController extends Controller
                     'message' => "Ocurrió un error: ".$e->getMessage()
                 ]);
             }
-            if(unlink($this->$custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen))
+            if(unlink($this->custom_path . $pet->idUsuario.'/pets'.'/'.$pet->id.'/gallery'.'/'.$image->imagen))
             {
                 $image->delete();
                 return response()->json([

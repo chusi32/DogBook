@@ -72,6 +72,10 @@ class FavoriteController extends Controller
     {
         if($request->ajax())
         {
+            // return response()->json([
+            //     'status' => 'true',
+            //     'message' => $id
+            // ]);
             $deleteFavorite = Favorite::where('idMascota', '=', Session::get('pet'))->where('idMascotaFavorito', '=', $id)->delete();
 
             //Se comprueba si se ha insertado correctamente.

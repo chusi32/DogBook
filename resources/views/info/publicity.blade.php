@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1 class="text-center">-- Publicitate en DogBook --</h1>
+                <h1 class="text-center">-- Publicítate en DogBook --</h1>
             </div>
         </div>
       <div class="iconcontainer">
